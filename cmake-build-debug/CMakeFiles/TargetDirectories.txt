@@ -1,0 +1,3 @@
+C:/Users/Sofia/Desktop/ESCOLA/1ºAno/2ºsemestre/prog/trabalho-pratico/cmake-build-debug/CMakeFiles/trabalho_pratico.dir
+C:/Users/Sofia/Desktop/ESCOLA/1ºAno/2ºsemestre/prog/trabalho-pratico/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Sofia/Desktop/ESCOLA/1ºAno/2ºsemestre/prog/trabalho-pratico/cmake-build-debug/CMakeFiles/rebuild_cache.dir
