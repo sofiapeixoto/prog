@@ -18,6 +18,6 @@ void saveFile(){
     FILE *ficheiro;
     ficheiro= fopen("perguntasOrdem.txt","a+");
 
-    fprintf(ficheiro, "%s;%s;%s;%s;%d\n", pergunta, r1 ,r2 ,r3 ,r4 ,rcerta);
+    fprintf(ficheiro, "%s;%s;%s;%s;%dlol\n", pergunta, r1 ,r2 ,r3 ,r4 ,rcerta);
 }
 
