@@ -42,14 +42,14 @@ void baralharOrdem(PerguntaOrdem perguntas[], int n) {
 int main() {
     Pergunta perguntas[] = {
             {
-                    "Qual é a capital da França?",
+                    "Qual ï¿½ a capital da Franï¿½a?",
                     {"Madrid", "Roma", "Paris", "Londres"},
                     3,
                     5
             },
             {
-                    "Qual é o elemento químico com símbolo 'O'?",
-                    {"Ouro", "Prata", "Oxigênio", "Hélio"},
+                    "Qual ï¿½ o elemento quï¿½mico com sï¿½mbolo 'O'?",
+                    {"Ouro", "Prata", "Oxigï¿½nio", "Hï¿½lio"},
                     3,
                     10
             },
@@ -60,14 +60,14 @@ int main() {
                     8
             },
             {
-                    "Qual planeta é conhecido como o Planeta Vermelho?",
-                    {"Vênus", "Júpiter", "Marte", "Saturno"},
+                    "Qual planeta ï¿½ conhecido como o Planeta Vermelho?",
+                    {"Vï¿½nus", "Jï¿½piter", "Marte", "Saturno"},
                     3,
                     15
             },
             {
-                    "Qual é o maior oceano do mundo?",
-                    {"Atlântico", "Índico", "Ártico", "Pacífico"},
+                    "Qual ï¿½ o maior oceano do mundo?",
+                    {"Atlï¿½ntico", "ï¿½ndico", "ï¿½rtico", "Pacï¿½fico"},
                     4,
                     7
             },
@@ -78,7 +78,7 @@ int main() {
                     12
             },
             {
-                    "Qual é a fórmula química da água?",
+                    "Qual ï¿½ a fï¿½rmula quï¿½mica da ï¿½gua?",
                     {"H2O", "CO2", "O2", "H2"},
                     1,
                     6
@@ -90,25 +90,25 @@ int main() {
                     9
             },
             {
-                    "Qual é a língua oficial do Brasil?",
-                    {"Espanhol", "Inglês", "Português", "Francês"},
+                    "Qual ï¿½ a lï¿½ngua oficial do Brasil?",
+                    {"Espanhol", "Inglï¿½s", "Portuguï¿½s", "Francï¿½s"},
                     3,
                     4
             },
             {
-                    "Qual é o maior planeta do sistema solar?",
-                    {"Terra", "Marte", "Júpiter", "Saturno"},
+                    "Qual ï¿½ o maior planeta do sistema solar?",
+                    {"Terra", "Marte", "Jï¿½piter", "Saturno"},
                     3,
                     11
             },
             {
-                    "Quem é conhecido como o 'Pai da Computação'?",
+                    "Quem ï¿½ conhecido como o 'Pai da Computaï¿½ï¿½o'?",
                     {"Bill Gates", "Charles Babbage", "Steve Jobs", "Alan Turing"},
                     2,
                     10
             },
             {
-                    "Qual é a velocidade da luz?",
+                    "Qual ï¿½ a velocidade da luz?",
                     {"300.000 km/s", "150.000 km/s", "500.000 km/s", "100.000 km/s"},
                     1,
                     14
@@ -120,8 +120,8 @@ int main() {
                     13
             },
             {
-                    "Qual país é conhecido como a Terra do Sol Nascente?",
-                    {"China", "Japão", "Coreia do Sul", "Tailândia"},
+                    "Qual paï¿½s ï¿½ conhecido como a Terra do Sol Nascente?",
+                    {"China", "Japï¿½o", "Coreia do Sul", "Tailï¿½ndia"},
                     2,
                     6
             }
@@ -129,21 +129,21 @@ int main() {
 
     PerguntaOrdem perguntasOrdem[] = {
             {
-                    "Ordene os números em ordem crescente:",
+                    "Ordene os nï¿½meros em ordem crescente:",
                     {"3", "1", "2"},
-                    {2, 3, 1}, // Índices corretos da ordem crescente
+                    {2, 3, 1}, // ï¿½ndices corretos da ordem crescente
                     5
             },
             {
-                    "Ordene as cores em ordem alfabética:",
+                    "Ordene as cores em ordem alfabï¿½tica:",
                     {"Verde", "Azul", "Vermelho"},
-                    {3, 1, 2}, // Índices corretos da ordem alfabética
+                    {3, 1, 2}, // ï¿½ndices corretos da ordem alfabï¿½tica
                     5
             },
             {
                     "Ordene os meses do ano em ordem inversa:",
-                    {"Fevereiro", "Janeiro", "Março"},
-                    {2, 1, 3}, // Índices corretos da ordem inversa
+                    {"Fevereiro", "Janeiro", "Marï¿½o"},
+                    {2, 1, 3}, // ï¿½ndices corretos da ordem inversa
                     5
             }
     };
@@ -172,7 +172,7 @@ int main() {
     printf("1- Jogo Curto\n");
     printf("2- Jogo Normal\n");
     printf("0- SAIR\n\n");
-    printf("INSIRA OPÇÃO: ");
+    printf("INSIRA OPï¿½ï¿½O: ");
     scanf("%d", &op);
 
     switch (op) {
@@ -186,7 +186,7 @@ int main() {
             printf("Saindo do jogo.\n");
             return 0;
         default:
-            printf("Opção inválida!!\n");
+            printf("Opï¿½ï¿½o invï¿½lida!!\n");
             return 0;
     }
 
@@ -194,25 +194,25 @@ int main() {
     embaralhar(perguntas, totalPerguntas);
 
     // SELECIONA A CORRETA
-    printf("SELECIONA A CORRETA!! Selecionar a opção correta dentro de 4 hipóteses. Não retira pontos!!\n");
+    printf("SELECIONA A CORRETA!! Selecionar a opï¿½ï¿½o correta dentro de 4 hipï¿½teses. Nï¿½o retira pontos!!\n");
     for (int i = 0; i < numPerguntas; i++) {
         printf("\nPergunta %d (%d pontos)\n", i + 1, perguntas[i].pontos);
         printf("%s\n", perguntas[i].pergunta);
         for (int j = 0; j < 4; j++) {
             printf("%d) %s\n", j + 1, perguntas[i].opcoes[j]);
         }
-        printf("Selecione a opção correta (1-4): ");
+        printf("Selecione a opï¿½ï¿½o correta (1-4): ");
         scanf("%d", &resposta);
         if (resposta == perguntas[i].respostaCorreta) {
             pontuacao += perguntas[i].pontos;
-            printf("Correto! Você ganhou %d pontos.\n\n", perguntas[i].pontos);
+            printf("Correto! Vocï¿½ ganhou %d pontos.\n\n", perguntas[i].pontos);
         } else {
-            printf("Errado! A resposta correta é %d) %s.\n\n", perguntas[i].respostaCorreta, perguntas[i].opcoes[perguntas[i].respostaCorreta - 1]);
+            printf("Errado! A resposta correta ï¿½ %d) %s.\n\n", perguntas[i].respostaCorreta, perguntas[i].opcoes[perguntas[i].respostaCorreta - 1]);
         }
     }
 
     // FUGA DE PONTOS
-    printf("FUGA DE PONTOS!! Selecionar a opção correta dentro de 4 hipóteses. Se errar, a pontuação é decrementada.\n");
+    printf("FUGA DE PONTOS!! Selecionar a opï¿½ï¿½o correta dentro de 4 hipï¿½teses. Se errar, a pontuaï¿½ï¿½o ï¿½ decrementada.\n");
     embaralhar(perguntas, totalPerguntas);
     for (int i = 0; i < numPerguntas; i++) {
         printf("\nPergunta %d (%d pontos)\n", i + 1, perguntas[i].pontos);
@@ -220,20 +220,20 @@ int main() {
         for (int j = 0; j < 4; j++) {
             printf("%d) %s\n", j + 1, perguntas[i].opcoes[j]);
         }
-        printf("Selecione a opção correta (1-4): ");
+        printf("Selecione a opï¿½ï¿½o correta (1-4): ");
         scanf("%d", &resposta);
         if (resposta == perguntas[i].respostaCorreta) {
             pontuacao += perguntas[i].pontos;
-            printf("Correto! Você ganhou %d pontos.\n", perguntas[i].pontos);
+            printf("Correto! Vocï¿½ ganhou %d pontos.\n", perguntas[i].pontos);
         } else {
             pontuacao -= perguntas[i].pontos;
-            printf("Errado! A resposta correta é %d) %s.\n", perguntas[i].respostaCorreta, perguntas[i].opcoes[perguntas[i].respostaCorreta - 1]);
-            printf("Você perdeu %d pontos.\n", perguntas[i].pontos);
+            printf("Errado! A resposta correta ï¿½ %d) %s.\n", perguntas[i].respostaCorreta, perguntas[i].opcoes[perguntas[i].respostaCorreta - 1]);
+            printf("Vocï¿½ perdeu %d pontos.\n", perguntas[i].pontos);
         }
     }
 
     // ORDENAR
-    printf("ORDENAR!! Colocar por ordem as 3 opções apresentadas. Todas as perguntas têm a mesma cotação.\n");
+    printf("ORDENAR!! Colocar por ordem as 3 opï¿½ï¿½es apresentadas. Todas as perguntas tï¿½m a mesma cotaï¿½ï¿½o.\n");
     embaralharOrdem(perguntasOrdem, totalPerguntasOrdem);
     for (int i = 0; i < numPerguntas; i++) {
         printf("\nPergunta %d (%d pontos)\n", i + 1, perguntasOrdem[i].pontos);
@@ -241,7 +241,7 @@ int main() {
         for (int j = 0; j < 3; j++) {
             printf("%d) %s\n", j + 1, perguntasOrdem[i].opcoes[j]);
         }
-        printf("Digite a ordem correta das opções (1, 2, 3): ");
+        printf("Digite a ordem correta das opï¿½ï¿½es (1, 2, 3): ");
         for (int j = 0; j < 3; j++) {
             scanf("%d", &respostas[j]);
         }
@@ -256,9 +256,9 @@ int main() {
 
         if (correto) {
             pontuacao += perguntasOrdem[i].pontos;
-            printf("Correto! Você ganhou %d pontos.\n", perguntasOrdem[i].pontos);
+            printf("Correto! Vocï¿½ ganhou %d pontos.\n", perguntasOrdem[i].pontos);
         } else {
-            printf("Errado! A ordem correta é:");
+            printf("Errado! A ordem correta ï¿½:");
             for (int j = 0; j < 3; j++) {
                 printf(" %d) %s", perguntasOrdem[i].respostaCorreta[j], perguntasOrdem[i].opcoes[perguntasOrdem[i].respostaCorreta[j] - 1]);
             }
@@ -266,7 +266,7 @@ int main() {
         }
     }
 
-    printf("\nPontuação final: %d\n", pontuacao);
+    printf("\nPontuaï¿½ï¿½o final: %d\n", pontuacao);
     printf("Obrigado por jogar!\n");
 
     return 0;
