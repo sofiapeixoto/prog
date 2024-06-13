@@ -3,4 +3,6 @@ project(trabalho_pratico C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(trabalho_pratico main.c)
+add_executable(trabalho_pratico main.c
+        files.c
+        files.h)
