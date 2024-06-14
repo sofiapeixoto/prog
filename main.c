@@ -10,7 +10,7 @@
 int main() {
     int numperguntas, pontos, potuacao=0, op;
     char nome[20], sigla[10];
-    
+    int i=0
     printf("Bem-Vindo ao jogo de EMECA!!!\n");
     
     entraradmin();
@@ -37,6 +37,9 @@ int main() {
             printf("Opção inválida!!\n");
             return 0;
     }
+    
+    printf("SELECIONA A CORRETA!! Selecionar a opção correta dentro de 4 hipóteses. Não retira pontos!!");
+    
     
     
     
