@@ -7,5 +7,7 @@
 #include <time.h>
 #include <string.h>
 
+void grupo_2_admin();
+
 #endif 
 
