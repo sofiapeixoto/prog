@@ -7,11 +7,16 @@ void OrdemFile(){
     int i = 0;
     
     
-    printf("Pergunta: \n"); gets(pergunta);
-    printf("Resposta1: "); gets(r1);
-    printf("Resposta2: "); gets(r2);
-    printf("Resposta3: "); gets(r3);
-    printf("Resposta certa: "); scanf("%d", &rcerta);
+    printf("Pergunta: \n"); 
+    fgets(pergunta, 300, stdin);
+    printf("Resposta1: "); 
+    fgets(r1, 100, stdin);
+    printf("Resposta2: "); 
+    fgets(r2, 100, stdin);
+    printf("Resposta3: "); 
+    fgets(r3, 100, stdin);
+    printf("Resposta certa: "); 
+    scanf("%d", &rcerta);
     
 FILE *ficheirordem;
     ficheirordem= fopen("perguntasordem.txt","a+");
@@ -57,7 +62,7 @@ FILE *ficheirordem;
 
 void entraradmin(){
     int admin, grupos;
-    char nome[50], sigla[10],utilizador[50], password[4] ;
+    char nome[50], sigla[10],utilizador[50], password[10] ;
     char utilizador1[] = "sofia";
     char utilizador2[] = "ines";
     char password1[] = "2006";
@@ -81,10 +86,6 @@ void entraradmin(){
         scanf("%s",utilizador);
         printf("Password:");
         scanf("%s",password);
-        printf("1 %s", utilizador);
-        printf("2 %s", utilizador1);
-        printf("3 %s", password);
-        printf("4 %s", password1);
         if ((strcmp(utilizador, utilizador1) == 0 || strcmp(utilizador, utilizador2) == 0) && strcmp(password, password1) == 0) {
             
             printf("Acesso autorizado!\n");
@@ -112,13 +113,9 @@ void entraradmin(){
            printf("NÃO ESTÁ AUTORIZADO!!!");
         
         }
-    }
-    default:
-        printf("Opção inválida!\n");
-        break;
-    }
+    }    
+
+
+
+
 }
-
-
-
-
