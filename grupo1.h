@@ -7,6 +7,6 @@
 #include <time.h>
 #include <string.h>
 
-void(grupo_1_admin);
+void grupo_1_admin();
 
 #endif 
