@@ -1,5 +1,5 @@
 #include "files.h"
-
+//
 void OrdemFile(){
     char pergunta[300];
     char r1[100], r2[100], r3[100], linha[100],*str[4];
@@ -78,22 +78,26 @@ void entraradmin(){
         
         case 2:
         printf("Utilizador:");
-        scanf("%s",&utilizador);
+        scanf("%s",utilizador);
         printf("Password:");
-        scanf("%s",&password);
+        scanf("%s",password);
+        printf("1 %s", utilizador);
+        printf("2 %s", utilizador1);
+        printf("3 %s", password);
+        printf("4 %s", password1);
         if ((strcmp(utilizador, utilizador1) == 0 || strcmp(utilizador, utilizador2) == 0) && strcmp(password, password1) == 0) {
             
             printf("Acesso autorizado!\n");
             printf("Qual grupo deseja aceder?\n (1)Grupo1\n (2)Grupo2\n (3)Grupo3\n" );
-            scanf("%d", grupos);
+            scanf("%d", &grupos);
             switch (grupos){
                
             case 1:
-            
+                grupo_1_admin();
             break;
             
             case 2:
-                
+                grupo_2_admin();
             break;
             
             case 3:
@@ -108,6 +112,10 @@ void entraradmin(){
            printf("NÃO ESTÁ AUTORIZADO!!!");
         
         }
+    }
+    default:
+        printf("Opção inválida!\n");
+        break;
     }
 }
 
