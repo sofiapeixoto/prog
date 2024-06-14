@@ -55,6 +55,46 @@ FILE *ficheirordem;
 
 }
 
+void entraradmin(){
+    int admin;
+    char nome[50], sigla[10],utilizador[50], password[4] ;
+    char utilizador1[] = "sofia";
+    char utilizador2[] = "ines";
+    char password1[] = "2006";
+    
+    printf("(1)Jogador ou (2)admin?");
+    scanf("%d",&admin);
+    getchar();
+    
+    switch (admin){
+        case 1:
+        printf("Insira o seu nome: ");
+        fgets(nome, sizeof(nome), stdin);
+        nome[strcspn(nome, "\n")] = 0;
+        printf("Insira a sua sigla: ");
+        fgets(sigla, sizeof(sigla), stdin);
+        sigla[strcspn(sigla, "\n")] = 0;  
+        break;
+        
+        case 2:
+        printf("Utilizador:");
+        scanf("%s",&utilizador);
+        printf("Password:");
+        scanf("%s",&password);
+        if ((strcmp(utilizador, utilizador1) == 0 || strcmp(utilizador, utilizador2) == 0) && strcmp(password, password1) == 0) {
+            printf("Acesso autorizado!\n");
+            ordemFile();
+        }else{
+            printf("NÃO ESTÁ AUTORIZADO!!!");
+           
+        }break;
+        
+        default:
+        printf("Opção inválida!\n");
+        break;
+    }
+}
+
 
 
 
