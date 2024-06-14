@@ -11,6 +11,7 @@ void grupo_1_admin(){
     int  i=0;
     char *str[10];
     
+    
     FILE *ficheiro;
   
     

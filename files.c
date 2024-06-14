@@ -7,7 +7,7 @@ void OrdemFile(){
     int i = 0;
     
     
-    printf("Pergunta: "); gets(pergunta);
+    printf("Pergunta: \n"); gets(pergunta);
     printf("Resposta1: "); gets(r1);
     printf("Resposta2: "); gets(r2);
     printf("Resposta3: "); gets(r3);
@@ -56,13 +56,13 @@ FILE *ficheirordem;
 }
 
 void entraradmin(){
-    int admin;
+    int admin, grupos;
     char nome[50], sigla[10],utilizador[50], password[4] ;
     char utilizador1[] = "sofia";
     char utilizador2[] = "ines";
     char password1[] = "2006";
     
-    printf("(1)Jogador ou (2)admin?");
+    printf("(1)Jogador ou (2)admin\n");
     scanf("%d",&admin);
     getchar();
     
@@ -82,16 +82,32 @@ void entraradmin(){
         printf("Password:");
         scanf("%s",&password);
         if ((strcmp(utilizador, utilizador1) == 0 || strcmp(utilizador, utilizador2) == 0) && strcmp(password, password1) == 0) {
+            
             printf("Acesso autorizado!\n");
-            ordemFile();
+            printf("Qual grupo deseja aceder?\n (1)Grupo1\n (2)Grupo2\n (3)Grupo3\n" );
+            scanf("%d", grupos);
+            switch (grupos){
+               
+            case 1:
+            
+            break;
+            
+            case 2:
+                
+            break;
+            
+            case 3:
+                OrdemFile();
+                   
+                break;
+            default:
+                printf("Opção inválida!\n");
+                break;
+            }   
         }else{
-            printf("NÃO ESTÁ AUTORIZADO!!!");
-           
-        }break;
+           printf("NÃO ESTÁ AUTORIZADO!!!");
         
-        default:
-        printf("Opção inválida!\n");
-        break;
+        }
     }
 }
 

@@ -10,7 +10,7 @@
 #include <time.h>
 #include <string.h>
 
-void ordemFile();
+void OrdemFile();
 void grupo_1_admin();
 void entraradmin();
 #endif //TRABALHO_PRATICO_FILES_H

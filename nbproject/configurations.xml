@@ -5,8 +5,6 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>files.h</itemPath>
-      <itemPath>grupo1.h</itemPath>
-      <itemPath>grupo2.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -17,7 +15,9 @@
                    projectFiles="true">
       <itemPath>files.c</itemPath>
       <itemPath>grupo1.c</itemPath>
+      <itemPath>grupo1.h</itemPath>
       <itemPath>grupo2.c</itemPath>
+      <itemPath>grupo2.h</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
