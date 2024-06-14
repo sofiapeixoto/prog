@@ -1,6 +1,5 @@
-printf("1º pergunta: %s\n", str[j]= pergunta);
-    printf("1Resposta 1: %s\n", str[j]= r1);
-    printf("Resposta 2: %s\n", str[j]= r2);
-    printf("Resposta 3: %s\n", str[j]= r3);
-    printf("Resposta certa: %s", str[j]= rcerta);
-    
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/cFiles/file.c to edit this template
+ */
+
