@@ -10,6 +10,6 @@
 #include <time.h>
 #include <string.h>
 
-void saveFile();
+void ordemFile();
 
 #endif //TRABALHO_PRATICO_FILES_H
