@@ -1,6 +1,6 @@
 #include "grupo1.h"
 
-void (grupo_1_admin){
+void grupo_1_admin(){
     char pergunta[100];
     char r1[50];
     char r2[50];
@@ -9,7 +9,7 @@ void (grupo_1_admin){
     int rcerta;
     char linha[200];
     int  i=0;
-    char* str[10];
+    char *str[10];
     
     FILE *ficheiro;
   
