@@ -12,5 +12,5 @@
 
 void ordemFile();
 void grupo_1_admin();
-
+void entraradmin();
 #endif //TRABALHO_PRATICO_FILES_H
