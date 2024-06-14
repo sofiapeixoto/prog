@@ -11,5 +11,6 @@
 #include <string.h>
 
 void ordemFile();
+void grupo_1_admin();
 
 #endif //TRABALHO_PRATICO_FILES_H
