@@ -14,6 +14,10 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>files.c</itemPath>
+      <itemPath>grupo1.c</itemPath>
+      <itemPath>grupo1.h</itemPath>
+      <itemPath>grupo2.c</itemPath>
+      <itemPath>grupo2.h</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -42,6 +46,14 @@
       </item>
       <item path="files.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="grupo1.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="grupo1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="grupo2.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="grupo2.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
@@ -68,6 +80,14 @@
       <item path="files.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="files.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="grupo1.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="grupo1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="grupo2.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="grupo2.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
