@@ -1,6 +1,6 @@
 #include "grupo2.h"
 
-void gruo_2_admin(){
+void grupo_2_admin(){
     
     char pergunta[100];
     char r1[50];
