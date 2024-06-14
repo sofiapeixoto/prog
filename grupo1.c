@@ -66,4 +66,13 @@ void grupo_1_admin(){
     }
     
     srand(time(NULL));
+    int randomperguntas = rand()%i;
+    
+    printf("Pergunta: %s\n", pergunta[randomperguntas]=pergunta);
+    printf("1) %s\n", pergunta[randomperguntas]=r1);
+    printf("2) %s\n", pergunta[randomperguntas])=r2;
+    printf("3) %s\n", pergunta[randomperguntas])=r3;
+    printf("4) %s\n", pergunta[randomperguntas])=r4;
+    
+    
 }
