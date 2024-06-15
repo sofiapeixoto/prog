@@ -13,7 +13,7 @@ typedef struct{
 // Verificamos de linha a linha a pergunta e as respostas que estão separadas por ';' .
 // O número total de perguntas vai ser adicionado até á última linha.
 
-void lerPerguntas1 (Perguntas1 perguntas1[]){        
+int lerPerguntas1 (Perguntas1 perguntas1[]){        
         
     FILE *ficheiroLer;
         ficheiroLer = fopen("perguntas_grupo_1.txt", "r");
@@ -27,6 +27,7 @@ void lerPerguntas1 (Perguntas1 perguntas1[]){
     char linha[700];
     
     while (fgets(linha, sizeof(linha), ficheiroLer) != NULL && totalperguntas < 50) {
+        // Separar as coisas da linha usando strtok
         char *token = strtok(linha, ";");
         if (token != NULL) {
             strncpy(perguntas1[totalperguntas].pergunta, token, sizeof(perguntas1[totalperguntas].pergunta) - 1);
@@ -42,6 +43,10 @@ void lerPerguntas1 (Perguntas1 perguntas1[]){
             token = strtok(NULL, ";");
             if (token != NULL)
                 strncpy(perguntas1[totalperguntas].r3, token, sizeof(perguntas1[totalperguntas].r3) - 1);
+            
+             token = strtok(NULL, ";");
+            if (token != NULL)
+                strncpy(perguntas1[totalperguntas].r4, token, sizeof(perguntas1[totalperguntas].r4) - 1);
 
             token = strtok(NULL, ";");
             if (token != NULL)
@@ -71,14 +76,32 @@ void baralharPerguntas1 (Perguntas1 perguntas1[], int totalperguntas) {
 
 //* Função de Meter as Perguntas do Grupo 1.
 // Criamos um ficheiro .txt que contém TODAS as perguntas do GRUPO1.
+
 void meterPerguntas1(){
     Perguntas1 perguntas;
-    printf("Pergunta: "); gets(perguntas.pergunta);
-    printf("Resposta 1: "); gets (perguntas.r1);
-    printf("Resposta 2: "); gets (perguntas.r2);
-    printf("Resposta 3: "); gets (perguntas.r3);
-    printf("Resposta 4: "); gets (perguntas.r4);
+    
+    printf("Pergunta: "); 
+    fgets(perguntas.pergunta, 300, stdin);
+    perguntas.pergunta[strcspn(perguntas.pergunta, "\n")] = '\0'
+            
+    printf("Resposta 1: "); 
+    fgets(perguntas.r1, 300, stdin);
+    perguntas.r1[strcspn(perguntas.r1, "\n")] = '\0'
+            
+    printf("Resposta 2: "); 
+    fgets(perguntas.r2, 300, stdin);
+    perguntas.r2[strcspn(perguntas.r2, "\n")] = '\0'
+            
+    printf("Resposta 3: ");
+    fgets(perguntas.r3, 300, stdin);
+    perguntas.r3[strcspn(perguntas.r3, "\n")] = '\0'
+            
+    printf("Resposta 4: ");
+    fgets(perguntas.r4, 300, stdin);
+    perguntas.r4[strcspn(perguntas.r4, "\n")] = '\0'
+            
     printf("Resposta certa: ");scanf("%d",&perguntas.rcerta); 
+    getchar();
     
     FILE *perguntas1;
     perguntas1 =fopen("perguntas_grupo_1.txt", "a+");
