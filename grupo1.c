@@ -68,7 +68,7 @@ void baralharPerguntas1 (Perguntas1 perguntas1[], int totalperguntas) {
     srand(time(NULL));
     for (int i = totalperguntas - 1; i > 0; i--) {
         int j = rand() % (i + 1);
-        PerguntasOrdem temp = perguntas1[i];
+        Perguntas1 temp = perguntas1[i];
         perguntas1[i] = perguntas1[j];
         perguntas1[j] = temp;
     }
