@@ -1,7 +1,7 @@
 #include "menus.h"
 
 void menuJogador(){
-    int opcao, pontuacao;
+    int opcao, pontuacao, numperguntas, respostascertas;
     char nome[20], sigla[10];
     printf("Insira o seu nome: ");
     scanf("%s",nome);
@@ -17,16 +17,36 @@ void menuJogador(){
 
         switch (opcao) {
             case 1:
-                pontuacao = jogo(2);
+                pontuacao = jogo(2, &numperguntas, &respostascertas);
                 break;
             case 2:
-                pontuacao = jogo(4);
+                pontuacao = jogo(4, &numperguntas, &respostascertas);
                 break;
             case 0:
                 printf("A sair do jogo...\n");
 
             default:
                 printf("Opção inválida!!\n");
+        }
+        
+        if(opcao == 1 || opcao == 2){
+            guardarPontuacao(nome, sigla, pontuacao);
+            
+            printf("Pontuação Final: %d ", pontuacao);
+            
+            int percentagemcertas,*numcertas,numerradas;
+            
+            percentagemcertas=(totalcertas / numperguntas)*100;
+            printf("Percentagem de Perguntas Certas: %d \%",percentagemcertas);
+            
+            numerradas=numperguntas-numcertas;
+            printf("Total de Perguntas Certas: %d\n Total de Perguntas Erradas: %d\n", numcertas,numerradas);
+            
+            RANKING utilizadores[100];
+            int totalutilizadores = lerPontuacao(utilizadores);
+            mostrarRanking(utilizadores,&totalutilizadores);
+            
+            opcao = 0;
         }
     }while(opcao != 0);
 }

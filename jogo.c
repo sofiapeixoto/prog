@@ -15,26 +15,29 @@ void mostrarPerguntasOrdem (PerguntasOrdem perguntas){
     printf("%s\n", perguntas.r3);
 }
 
-int lerResposta(Perguntas pergunta){
+int lerResposta(Perguntas pergunta, int *numcertas){
     int resposta;
 
     printf("\nResposta:");
     scanf("%d", &resposta);
     if(resposta == pergunta.rcerta){
         printf("ACERTOU! +5\n\n");
+        (*numcertas)++;
         return 5;
     }else{
         printf("Errou!\n\n");
         return 0;
     }
 }
-int lerResposta1(Perguntas pergunta){
+int lerResposta1(Perguntas pergunta,int *numcertas){
     int resposta;
-
+    
+    
     printf("\nResposta:");
     scanf("%d", &resposta);
     if(resposta == pergunta.rcerta){
         printf("ACERTOU! +5\n\n");
+        (*numcertas)++;
         return 5;
     }else{
         printf("Errou! -2 Pontos \n\n");
@@ -42,13 +45,14 @@ int lerResposta1(Perguntas pergunta){
     }
 }
 
-int lerResposta2(PerguntasOrdem perguntas){
+int lerResposta2(PerguntasOrdem perguntas, int *numcertas){
     int resposta;
 
     printf("\nResposta:");
     scanf("%d", &resposta);
     if(resposta == perguntas.rcerta){
         printf("ACERTOU! +5\n\n");
+        (*numcertas)++;
         return 5;
     }else{
         printf("Errou!\n\n");
@@ -64,7 +68,7 @@ int jaRespondida(int id, int perguntasRespondidas[]){
     return 0;
 }
 
-int grupo1(int *numrespondidas, int numperguntas, Perguntas perguntas[], int perguntasRespondidas[], int totalperguntas){
+int grupo1(int *numrespondidas, int *numperguntas,int *numcertas, Perguntas perguntas[], int perguntasRespondidas[], int totalperguntas){
     srand(time(NULL));
     printf("\nSELECIONA A CORRETA!! Selecionar a opção correta dentro de 4 hipóteses. Não retira pontos!!\n\n");
     int id = 0, pontos = 0;
@@ -77,7 +81,7 @@ int grupo1(int *numrespondidas, int numperguntas, Perguntas perguntas[], int per
 
         Perguntas pergunta = perguntas[id];
         mostrarPerguntas(pergunta);
-        pontos += lerResposta(pergunta);
+        pontos += lerResposta(pergunta, numcertas);
 
         (*numrespondidas)++;
     }while(*numrespondidas % numperguntas != 0);
@@ -85,7 +89,7 @@ int grupo1(int *numrespondidas, int numperguntas, Perguntas perguntas[], int per
     return pontos;
 }
 
-int grupo2(int *numrespondidas, int numperguntas, Perguntas perguntas[], int perguntasRespondidas[], int totalperguntas){
+int grupo2(int *numrespondidas, int *numperguntas,int *numcertas, Perguntas perguntas[], int perguntasRespondidas[], int totalperguntas){
     srand(time(NULL));
     printf("\nFUGA DE PONTOS!! Selecionar a opção correta dentro de 4 hipóteses. Se errar, a pontuação é retirada!\n\n");
     int id = 0, pontos = 0;
@@ -98,7 +102,7 @@ int grupo2(int *numrespondidas, int numperguntas, Perguntas perguntas[], int per
 
         Perguntas pergunta = perguntas[id];
         mostrarPerguntas(pergunta);
-        pontos += lerResposta1(pergunta);
+        pontos += lerResposta1(pergunta, numcertas);
 
         (*numrespondidas)++;
     }while(*numrespondidas % numperguntas != 0);
@@ -106,7 +110,7 @@ int grupo2(int *numrespondidas, int numperguntas, Perguntas perguntas[], int per
     return pontos;
 }
 
-int grupo3(int *numrespondidas, int numperguntas, PerguntasOrdem perguntas[], int perguntasRespondidas[], int totalperguntas){
+int grupo3(int *numrespondidas, int *numperguntas,int *numcertas, PerguntasOrdem perguntas[], int perguntasRespondidas[], int totalperguntas){
     srand(time(NULL));
     printf("\nORDENAR!! Colocar por ordem as 3 opções apresentadas. Não são retirados pontos!\n\n");
     int id = 0, pontos = 0;
@@ -119,7 +123,7 @@ int grupo3(int *numrespondidas, int numperguntas, PerguntasOrdem perguntas[], in
 
         PerguntasOrdem pergunta = perguntas[id];
         mostrarPerguntasOrdem(pergunta);
-        pontos += lerResposta2(pergunta);
+        pontos += lerResposta2(pergunta, numcertas);
 
         (*numrespondidas)++;
     }while(*numrespondidas % numperguntas != 0);
@@ -127,16 +131,16 @@ int grupo3(int *numrespondidas, int numperguntas, PerguntasOrdem perguntas[], in
     return pontos;
 }
 
-int jogo(int numperguntas){
-    int pontuacao, numrespondidas = 0;
+int jogo(int *numperguntas, int *numrespondidas, int *numcertas){
+    int pontuacao;
     Perguntas perguntas[50];
     int perguntasRespondidas[50];
     
     int totalperguntasFicheiro = lerPerguntas(perguntas);
     baralharPerguntas(perguntas, totalperguntasFicheiro);
 
-    pontuacao += grupo1(&numrespondidas, numperguntas, perguntas, perguntasRespondidas, totalperguntasFicheiro);
-    pontuacao += grupo2(&numrespondidas, numperguntas, perguntas, perguntasRespondidas, totalperguntasFicheiro);
+    pontuacao += grupo1(numrespondidas, numperguntas, numcertas, perguntas, perguntasRespondidas, totalperguntasFicheiro);
+    pontuacao += grupo2(numrespondidas, numperguntas, numcertas, perguntas, perguntasRespondidas, totalperguntasFicheiro);
     
     PerguntasOrdem perguntasOrdem[30];
     int perguntasOrdemRespondidas[50];
@@ -144,7 +148,7 @@ int jogo(int numperguntas){
     int totalperguntasOrdem = lerPerguntasOrdem(perguntasOrdem);
     baralharPerguntasOrdem(perguntasOrdem, totalperguntasOrdem);
     
-    pontuacao += grupo3(&numrespondidas, numperguntas, perguntasOrdem, perguntasOrdemRespondidas, totalperguntasOrdem);
+    pontuacao += grupo3(numrespondidas, numperguntas, numcertas, perguntasOrdem, perguntasOrdemRespondidas, totalperguntasOrdem);
 
 
     return pontuacao;

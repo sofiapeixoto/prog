@@ -7,7 +7,7 @@ int lerPerguntas(Perguntas perguntas[]) {
 
     if (ficheiro == NULL) {
         printf("Não foi possível abrir o ficheiro.\n");
-        return 0;
+        exit(0);
     }
 
     int totalperguntas = 0;
@@ -90,7 +90,7 @@ void meterPerguntas() {
         return;
     }
 
-    fprintf(ficheiro, "%s;\n%s;\n%s;\n%s;\n%s;\n%d\n", pergunta.pergunta, pergunta.r1, pergunta.r2, pergunta.r3, pergunta.r4, pergunta.rcerta);
+    fprintf(ficheiro, "%s;%s;%s;%s;%s;%d", pergunta.pergunta, pergunta.r1, pergunta.r2, pergunta.r3, pergunta.r4, pergunta.rcerta);
     fclose(ficheiro);
 }
 
@@ -180,3 +180,79 @@ void meterPerguntaOrdem() {
     fclose(perguntasOrdem);
 }
 
+
+
+/* RANKING*/
+void guardarPontuacao( char nome[], char sigla[], int pontuacao){
+    
+   FILE *ranking = fopen("ranking.txt", "a");
+   
+   if(ranking == NULL){
+        printf("Erro!!!");
+   }
+   
+   fprintf(ranking, "%s;%s;%d", nome, sigla, pontuacao);
+   fclose(ranking);
+}
+
+typedef struct{
+    int pontuacao;
+    char sigla[10];
+    char nome[50];
+}RANKING;
+
+void lerPontuacao(RANKING utilizador[]){
+    
+   FILE *ranking = fopen("ranking.txt", "a");
+   
+   if(ranking == NULL){
+        printf("Erro!!!");
+   }
+   
+   int totalutilizadores = 0;
+   char linha[700];
+
+    while (fgets(linha, sizeof(linha), ranking) != NULL) {
+        char *token = strtok(linha, ";");
+        if (token != NULL) {
+            utilizador[totalutilizadores].pontuacao = atoi(token);
+
+            token = strtok(NULL, ";");
+            if (token != NULL)
+                strncpy(utilizador[totalutilizadores].nome, token, sizeof(utilizador[totalutilizadores].nome) - 1);
+
+            token = strtok(NULL, ";");
+            if (token != NULL)
+                strncpy(utilizador[totalutilizadores].sigla, token, sizeof(utilizador[totalutilizadores].sigla) - 1);
+            
+            totalutilizadores++;
+        }
+    }
+
+    fclose(ranking);
+}
+
+
+void bubbleSortDescending(RANKING rankings[], int n) {
+    int trocado;
+    do {
+        trocado = 0;
+        for (int i = 0; i < n - 1; ++i) {
+            if (rankings[i].pontuacao < rankings[i + 1].pontuacao) {
+                RANKING temp = rankings[i];
+                rankings[i] = rankings[i + 1];
+                rankings[i + 1] = temp;
+                trocado = 1;
+            }
+        }
+        --n;
+    } while (trocado);
+}
+
+void mostrarRanking(RANKING rankings[], int totalutilizadores) {
+    bubbleSortDescending(rankings, totalutilizadores);
+    for (int i = 0; i < 3; ++i) {
+        printf("%s (%s): %d", rankings[i].nome, rankings[i].nome, rankings[i].nome);
+    }
+    printf("\n");
+}
