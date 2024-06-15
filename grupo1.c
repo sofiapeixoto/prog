@@ -72,13 +72,13 @@ void baralharPerguntas1 (Perguntas1 perguntas1[], int totalperguntas) {
 //* Função de Meter as Perguntas do Grupo 1.
 // Criamos um ficheiro .txt que contém TODAS as perguntas do GRUPO1.
 void meterPerguntas1(){
-    int i=0;
-    printf("Pergunta: "); gets(Perguntas1[i].pergunta);
-    printf("Resposta 1: "); gets (Perguntas1[i].r1);
-    printf("Resposta 2: "); gets (Perguntas1[i].r2);
-    printf("Resposta 3: "); gets (Perguntas1[i].r3);
-    printf("Resposta 4: "); gets (Perguntas1[i].r4);
-    printf("Resposta certa: ");scanf("%d",&Perguntas1[i].rcerta); 
+    Perguntas1 perguntas;
+    printf("Pergunta: "); gets(perguntas.pergunta);
+    printf("Resposta 1: "); gets (perguntas.r1);
+    printf("Resposta 2: "); gets (perguntas.r2);
+    printf("Resposta 3: "); gets (perguntas.r3);
+    printf("Resposta 4: "); gets (perguntas.r4);
+    printf("Resposta certa: ");scanf("%d",&perguntas.rcerta); 
     
     FILE *perguntas1;
     perguntas1 =fopen("perguntas_grupo_1.txt", "a+");
@@ -87,6 +87,6 @@ void meterPerguntas1(){
         printf("Erro ao abrir o ficheiro.\n");
         }
     
-    fprintf(perguntas1, "%s;\n%s;\n%s;\n%s;\n%s;\n%d\n",Perguntas1[i].pergunta,Perguntas1[i].r1,Perguntas1[i].r2,Perguntas1[i].r3,Perguntas1[i].r4,Perguntas1[i].rcerta );
+    fprintf(perguntas1, "%s;\n%s;\n%s;\n%s;\n%s;\n%d\n",perguntas.pergunta,perguntas.r1,perguntas.r2,perguntas.r3,perguntas.r4,perguntas.rcerta );
     fclose(perguntas1);
 }
