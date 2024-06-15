@@ -9,73 +9,96 @@ typedef struct {
     int rcerta;
 } Perguntas2;
 
-void grupo_2_admin(){
+int lerPerguntas2(Perguntas2 perguntas2[]) {        
+    FILE *ficheiroLer;
+    ficheiroLer = fopen("perguntas_grupo_2.txt", "r");
     
-    char pergunta[100];
-    char r1[50];
-    char r2[50];
-    char r3[50];
-    char r4[50];
-    int rcerta;
-    char linha[200];
-    int  i=0;
-    char* str[10];
-    
-    FILE *ficheiro;
-  
-    
-    
-    printf("Pergunta: "); gets(pergunta);
-    printf("Resposta 1: "); gets(r1);
-    printf("Resposta 2: "); gets(r2);
-    printf("Resposta 3: "); gets(r3);
-    printf("Resposta 4: "); gets(r4);
-    printf("Resposta certa: ");scanf("%d",&rcerta);
-        
-    ficheiro =fopen("perguntas_grupo_2.txt", "a+");
-    
-     fprintf(ficheiro, "%s;\n%s;\n%s;\n%s;\n%s;\n%d\n",pergunta,r1,r2,r3,r4,rcerta );
-        
-    if (ficheiro == NULL) {
-        printf("Erro ao abrir o ficheiro.\n");
-        
+    if (ficheiroLer == NULL) {
+        printf("Não foi possível abrir o ficheiro.\n");
+        return 0;
     }
     
-    while(fgets(linha, sizeof(linha), ficheiro)!=NULL){
-        
-        char* token = strtok(linha,";");
-        int i=0;
-        
-        while (token != NULL) {
-            //printf("%s\n", token);
-            str[i] =token;
-            token = strtok(NULL,";");
-            i++;
-        }
-        if(i==10){
-            str[0]=pergunta;
-            str[1]=r1;
-            str[2]=r2;
-            str[3]=r3;
-            str[4]=r4;
-            str[5]=rcerta; 
-            i++;
-        }
-    }
-    fclose(ficheiro);
+    int totalperguntas = 0;
+    char linha[700];
     
-    for(int j=0; j<i; j++){
-        
-    printf("1º pergunta: %s\n", str[j]=pergunta);
-    printf("1Resposta 1: %s\n", str[j]=r1);
-    printf("Resposta 2: %s\n", str[j]=r2);
-    printf("Resposta 3: %s\n", str[j]=r3);
-    printf("Resposta 4: %s\n", str[j]=r4);
-    printf("Resposta certa: %s", str[j]=rcerta);
-    }
-    
+    while (fgets(linha, sizeof(linha), ficheiroLer) != NULL && totalperguntas < 50) {
+        char *token = strtok(linha, ";");
+        if (token != NULL) {
+            strncpy(perguntas2[totalperguntas].pergunta, token, sizeof(perguntas2[totalperguntas].pergunta) - 1);
+
+            token = strtok(NULL, ";");
+            if (token != NULL)
+                strncpy(perguntas2[totalperguntas].r1, token, sizeof(perguntas2[totalperguntas].r1) - 1);
+
+            token = strtok(NULL, ";");
+            if (token != NULL)
+                strncpy(perguntas2[totalperguntas].r2, token, sizeof(perguntas2[totalperguntas].r2) - 1);
+
+            token = strtok(NULL, ";");
+            if (token != NULL)
+                strncpy(perguntas2[totalperguntas].r3, token, sizeof(perguntas2[totalperguntas].r3) - 1);
             
-    
-    
+            token = strtok(NULL, ";");
+            if (token != NULL)
+                strncpy(perguntas2[totalperguntas].r4, token, sizeof(perguntas2[totalperguntas].r4) - 1);
+
+            token = strtok(NULL, ";");
+            if (token != NULL)
+                perguntas2[totalperguntas].rcerta = atoi(token);
+
+            totalperguntas++;
+        }
+    }
+
+    fclose(ficheiroLer);
+    return totalperguntas;
 }
 
+void baralharPerguntas1(Perguntas2 perguntas2[], int totalperguntas) {
+    srand(time(NULL));
+    for (int i = totalperguntas - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        Perguntas2 temp = perguntas2[i];
+        perguntas2[i] = perguntas2[j];
+        perguntas2[j] = temp;
+    }
+    
+}
+void meterPerguntas2() {
+    Perguntas2 perguntas;
+    
+    printf("Pergunta: "); 
+    fgets(perguntas.pergunta, 300, stdin);
+    perguntas.pergunta[strcspn(perguntas.pergunta, "\n")] = '\0';
+            
+    printf("Resposta 1: "); 
+    fgets(perguntas.r1, 100, stdin);
+    perguntas.r1[strcspn(perguntas.r1, "\n")] = '\0';
+            
+    printf("Resposta 2: "); 
+    fgets(perguntas.r2, 100, stdin);
+    perguntas.r2[strcspn(perguntas.r2, "\n")] = '\0';
+            
+    printf("Resposta 3: ");
+    fgets(perguntas.r3, 100, stdin);
+    perguntas.r3[strcspn(perguntas.r3, "\n")] = '\0';
+            
+    printf("Resposta 4: ");
+    fgets(perguntas.r4, 100, stdin);
+    perguntas.r4[strcspn(perguntas.r4, "\n")] = '\0';
+            
+    printf("Resposta certa: ");
+    scanf("%d", &perguntas.rcerta);
+    getchar();
+    
+    FILE *perguntas2;
+    perguntas2 = fopen("perguntas_grupo_2.txt", "a+");
+    
+    if (perguntas2 == NULL) {
+        printf("Erro ao abrir o ficheiro.\n");
+        return;
+    }
+    
+    fprintf(perguntas2, "%s;%s;%s;%s;%s;%d\n", perguntas.pergunta, perguntas.r1, perguntas.r2, perguntas.r3, perguntas.r4, perguntas.rcerta);
+    fclose(perguntas2);
+}
