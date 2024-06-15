@@ -1,12 +1,4 @@
 #include "files.h"
-
-typedef struct {
-    char pergunta[300];
-    char r1[100];
-    char r2[100];
-    char r3[100];
-    int rcerta;
-}PerguntasOrdem;
     
 //* Função de Ler Perguntas do Grupo 3. 
 // Criamos um ficheiro para ler as perguntas (r). Limitamos o número máximo de perguntas para 30. 
@@ -117,27 +109,23 @@ void entraradmin(){
     char utilizador1[] = "sofia";
     char utilizador2[] = "ines";
     char password1[] = "2006";
-    
-    printf("(1)Jogador ou (2)Administrador ?\n");
-    scanf("%d",&admin);
-    getchar();
-    
-    switch (admin){
-     case 1:
-            printf("Insira o seu nome: ");
-            fgets(nome, sizeof(nome), stdin);
-           
-            printf("Insira a sua sigla: ");
-            fgets(sigla, sizeof(sigla), stdin);
-            
 
+    do{
+        printf("(1)Jogador ou (2)Administrador (0) Sair?\n");
+        scanf("%d",&admin);
+        getchar();
+
+        switch (admin){
+            case 1:
+                printf("Insira o seu nome: ");
+                fgets(nome, sizeof(nome), stdin);
+                printf("Insira a sua sigla: ");
+                fgets(sigla, sizeof(sigla), stdin);
             break;
-        
-        case 2:
-            while (1) {
+
+            case 2:
                 printf("Utilizador: ");
                 scanf("%s", utilizador);
-
                 printf("Password: ");
                 scanf("%s", password);
 
@@ -166,13 +154,14 @@ void entraradmin(){
                 } else {
                     printf("NÃO ESTÁ AUTORIZADO!!!\n");
                 }
-            }
             break;
 
-        default:
-            printf("Opção inválida!\n");
+            default:
+                printf("Opção inválida!\n");
             break;
-    }
+        }
+
+    }while(admin != 0);
 }
 
 
