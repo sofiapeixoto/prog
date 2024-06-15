@@ -11,6 +11,6 @@
 #include <string.h>
 #include "files.h"
 
-int jogo(int *numperguntas);
+int jogo(int numperguntas);
 
 #endif //TRABALHO_PRATICO_JOGO_H
