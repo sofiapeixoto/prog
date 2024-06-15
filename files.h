@@ -13,10 +13,10 @@ typedef struct {
         char r2[100];
         char r3[100];
         int rcerta;
-    } PerguntasOrdem;
+    }PerguntasOrdem;
     
 void meterPerguntaOrdem();
-int lerPerguntasOrdem(PerguntasOrdem perguntas[]);
-void baralharPerguntasOrdem (PerguntasOrdem perguntas[], int totalperguntas);
+int lerPerguntasOrdem();
+void baralharPerguntasOrdem ();
 void entraradmin();
 #endif //TRABALHO_PRATICO_FILES_H
