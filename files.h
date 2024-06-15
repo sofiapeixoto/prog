@@ -4,19 +4,20 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <string.h>
+#include <time.h>
 
 typedef struct {
-        char pergunta[300];
-        char r1[100];
-        char r2[100];
-        char r3[100];
-        int rcerta;
-    }PerguntasOrdem;
-    
+    char pergunta[300];
+    char r1[100];
+    char r2[100];
+    char r3[100];
+    int rcerta;
+} PerguntasOrdem;
+
 void meterPerguntaOrdem();
-int lerPerguntasOrdem();
-void baralharPerguntasOrdem ();
+int lerPerguntasOrdem(PerguntasOrdem perguntas[]);
+void baralharPerguntasOrdem(PerguntasOrdem perguntas[], int totalperguntas);
 void entraradmin();
-#endif //TRABALHO_PRATICO_FILES_H
+
+#endif // FILES_H
