@@ -8,7 +8,7 @@ void menuJogador(){
     printf("Insira a sua sigla: ");
     scanf("%s",sigla);
     do{
-        printf ("Bem-Vindo, %s (%s)!\n", nome, sigla);
+        printf ("\nBem-Vindo, %s (%s)!\n", nome, sigla);
         printf ("1- Jogo Curto\n");
         printf ("2- Jogo Normal\n");
         printf ("0- SAIR\n\n");
@@ -52,7 +52,7 @@ void menuAdmin(){
 
 
     do{
-        printf("Acesso autorizado!\n");
+        printf("\nAcesso autorizado!\n");
         printf("Qual grupo deseja aceder?\n (1) Grupo1 e Grupo2\n (3) Grupo3\n");
         scanf("%d", &opcao);
         getchar();
@@ -67,7 +67,7 @@ void menuAdmin(){
                 break;
 
             default:
-                printf("Opção inválida!\n");
+                printf("\nOpção inválida!\n");
                 break;
         }
     }while(opcao != 0);

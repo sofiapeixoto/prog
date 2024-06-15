@@ -13,3 +13,15 @@ Coloque os seguintes álbuns em ordem de lançamento:;"Thriller" de Michael Jack
 Organize os músicos pela data de nascimento:;Ludwig van Beethoven;Wolfgang Amadeus Mozart;Johann Sebastian Bach;321
 Ordene os seguintes dispositivos pelo ano de lançamento:;iPhone;Game Boy;PlayStation;231
 Coloque as seguintes redes sociais em ordem de lançamento:;Facebook;Instagram;Twitter;132
+Ordene as seguintes civilizações pela ordem em que floresceram:;Império Romano;Império Egípcio;Império Bizantino;213
+Organize as seguintes obras de arte pela data de criação:;Mona Lisa de Leonardo da Vinci;O Grito de Edvard Munch;Guernica de Pablo Picasso;132
+Coloque as seguintes descobertas científicas em ordem cronológica:;Lei da Gravitação Universal (Newton);Teoria da Relatividade (Einstein);Estrutura do DNA (Watson e Crick);132
+Ordene os seguintes filósofos pela data de nascimento:;Sócrates;Aristóteles;Platão;132
+Organize as seguintes cidades pelo ano em que foram fundadas:;Nova Iorque;Londres;Roma;321
+Coloque os seguintes autores de ficção científica em ordem de nascimento:;Isaac Asimov;H.G. Wells;Philip K. Dick;213
+Ordene as seguintes eras geológicas do mais antigo ao mais recente:;Mesozóica;Paleozóica;Cenozóica;213
+Organize as seguintes constelações pelo tamanho, da menor para a maior:;Ursa Maior;Orion;Cruzeiro do Sul;312
+Coloque os seguintes filósofos modernos em ordem de nascimento:;René Descartes;Immanuel Kant;Friedrich Nietzsche;123
+Ordene os seguintes movimentos artísticos cronologicamente:;Renascimento;Barroco;Impressionismo;123
+Ordene as seguintes invenções pela data de criação:;Telefone;Automóvel;Computador;123
+Coloque as seguintes montanhas em ordem de altitude, da menor para a maior:;Monte Kilimanjaro;Monte Everest;Monte Aconcágua;132
