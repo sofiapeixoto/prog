@@ -5,4 +5,8 @@ set(CMAKE_C_STANDARD 99)
 
 add_executable(trabalho_pratico main.c
         files.c
-        files.h)
+        files.h
+        jogo.c
+        jogo.h
+        menus.c
+        menus.h)

@@ -36,9 +36,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/files.o \
-	${OBJECTDIR}/grupo1.o \
-	${OBJECTDIR}/grupo2.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/jogo.o \
+	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/menus.o
 
 
 # C Compiler Flags
@@ -70,20 +70,20 @@ ${OBJECTDIR}/files.o: files.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/files.o files.c
 
-${OBJECTDIR}/grupo1.o: grupo1.c
+${OBJECTDIR}/jogo.o: jogo.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/grupo1.o grupo1.c
-
-${OBJECTDIR}/grupo2.o: grupo2.c
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/grupo2.o grupo2.c
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/jogo.o jogo.c
 
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+
+${OBJECTDIR}/menus.o: menus.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/menus.o menus.c
 
 # Subprojects
 .build-subprojects:

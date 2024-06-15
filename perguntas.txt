@@ -1,0 +1,20 @@
+Qual é a lingua oficial dos camarões?;Português;Inglês;Francês e Inglês;Francês;3
+Qual é o animal mais rápido do mundo?;Leopardo;Zebra;Guepardo;Tigre;3
+Qual o nome do Hino de Portugal?;Hino de Portugal;Heróis do Mar;Esplendor de Portugal;A Portuguesa;4
+Em que ano Portugal ganhou o último Euro?;2018;2012;2016;2020;3
+Completa a musica: Tu não prendas o cabelo/ eu gosto de solto vê-lo/ Pois te fica muito bem ...;Que lindo é o teu cabelo;Realçando tua formusura ;Tu és a mulher que eu sonhei;Quando nele dá o vento;4
+Quantas cordas tem uma guitarra?;4;6;7;8;2
+Completa a música: Entre sombras misteriosas/ Em rompendo ao longe estrelas / trocaremos nossas rosas ...;Para oferecer;Para esquecer;Para depois esquecê-las;Para depois ofercê-las;3
+Qual o santuário localizaado no alto do monte em Viana do Castelo?;Santuário da Sra do Minho;Santuário da Sra da Agonia;Santuário do Sr dos Aflitos;Santuário de Santa Luzia;4
+Quantas escolas tem o IPVC?;1;6;7;5;2
+Completa o ditado: Amigos /amigos;amizade para sempre;impatam amigos;não se mete a colher;negócios à parte;4
+Qual é a capital de França?;Madrid;Roma;Paris;Londres;3
+Qual é o elemento químico com símbolo 'O'?;Ouro;Prata;Oxigênio;Hélio;3
+Quem escreveu "Dom Quixote"?;William Shakespear;Miguel de Cervantes;Leo Tolstoy;Gabriel Garcia Marquez;2
+Qual planeta é conhecido como o Planeta Vermelho?;Vênus;Júpiter;Saturno;Marte;4
+Qual o maior oceano do Mundo?;Pacífico;Atlântico;Índico;Ártico;1
+Quem pintou a Mona Lisa?;Pablo Picasso;Leonardo da Vinci;Claude Monet;Vicent Van Gogh;2
+Qual é a fórmula química da água?;CO2;H2O;H2;O2;2
+Em que ano ocorreu a 1º guerra Mundial?;1914;1939;1812;1945;1
+Qual é a velocidade da luz?;300.000 Km/s;150.000 Km/s;500.000 Km/s;100.000 Km/s;1
+Quem desenvolveu a teoria da relatividade?;Isaac Newton;Albert Einstein;Nikola Tesla;Galileu Galilei;2
