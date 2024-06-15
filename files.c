@@ -1,13 +1,12 @@
 #include "files.h"
-//
-    
-    typedef struct {
-        char pergunta[300];
-        char r1[100];
-        char r2[100];
-        char r3[100];
-        int rcerta;
-    } PerguntasOrdem;
+
+typedef struct {
+    char pergunta[300];
+    char r1[100];
+    char r2[100];
+    char r3[100];
+    int rcerta;
+}PerguntasOrdem;
     
 //* Função de Ler Perguntas do Grupo 3. 
 // Criamos um ficheiro para ler as perguntas (r). Limitamos o número máximo de perguntas para 30. 
@@ -29,6 +28,7 @@ int lerPerguntasOrdem(PerguntasOrdem perguntas[]) {
     char linha[700];
     
     while (fgets(linha, sizeof(linha), LerperguntasOrdem) != NULL && totalperguntas < 30) {
+        // Separar as coisas da linha usando strtok
         char *token = strtok(linha, ";");
         if (token != NULL) {
             strncpy(perguntas[totalperguntas].pergunta, token, sizeof(perguntas[totalperguntas].pergunta) - 1);
@@ -77,15 +77,24 @@ void baralharPerguntasOrdem (PerguntasOrdem perguntas[], int totalperguntas) {
     PerguntasOrdem pergunta;
     printf("Pergunta: \n"); 
     fgets(pergunta.pergunta, 300, stdin);
+    pergunta.pergunta[strcspn(pergunta.pergunta, "\n")] = '\0'
+            
     printf("Resposta1: "); 
     fgets(pergunta.r1, 100, stdin);
+    pergunta.r1[strcspn(pergunta.r1, "\n")] = '\0'
+            
     printf("Resposta2: "); 
     fgets(pergunta.r2, 100, stdin);
+    pergunta.r2[strcspn(pergunta.r2, "\n")] = '\0'
+            
     printf("Resposta3: "); 
     fgets(pergunta.r3, 100, stdin);
+    pergunta.r3[strcspn(pergunta.r3, "\n")] = '\0'
+            
     printf("Resposta certa: "); 
     scanf("%d", &pergunta.rcerta);
-    
+     getchar();
+            
     FILE *ficheirordem;
     ficheirordem= fopen("perguntasordem.txt","a+");
     if (ficheirordem==NULL){
