@@ -21,3 +21,4 @@ void baralharPerguntasOrdem(PerguntasOrdem perguntas[], int totalperguntas);
 void entraradmin();
 
 #endif // FILES_H
+
