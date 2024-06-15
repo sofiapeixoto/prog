@@ -1,5 +1,14 @@
 #include "grupo2.h"
 
+typedef struct {
+    char pergunta[300];
+    char r1[100];
+    char r2[100];
+    char r3[100];
+    char r4[100];
+    int rcerta;
+} Perguntas2;
+
 void grupo_2_admin(){
     
     char pergunta[100];
