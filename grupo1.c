@@ -65,7 +65,7 @@ Perguntas1 perguntas[30];
     printf("Resposta 2: %s\n", perguntas[i].r2);
     printf("Resposta 3: %s\n", perguntas[i].r3);
     printf("Resposta 4: %s\n", perguntas[i].r4);
-    printf("Resposta certa: %", perguntas[i].rcerta);
+    printf("Resposta certa: %d\n", perguntas[i].rcerta);
     }
     
     srand(time(NULL));
