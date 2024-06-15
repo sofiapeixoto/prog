@@ -7,6 +7,7 @@
 #include <time.h>
 #include <string.h>
 
-void grupo_1_admin();
-
+void baralharPerguntas1 (Perguntas1 perguntas1[], int totalperguntas);
+void meterPerguntas1();
+void lerPerguntas1 (Perguntas1 perguntas1[]);
 #endif 
