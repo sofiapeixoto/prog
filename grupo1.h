@@ -7,7 +7,8 @@
 #include <time.h>
 #include <string.h>
 
-void baralharPerguntas1 (Perguntas1 perguntas1[], int totalperguntas);
+
+int lerPerguntas1(Perguntas1 perguntas1[]);
+void baralharPerguntas1(Perguntas1 perguntas1[], int totalperguntas);
 void meterPerguntas1();
-void lerPerguntas1 (Perguntas1 perguntas1[]);
 #endif 
