@@ -8,11 +8,11 @@ void menuJogador(){
     printf("Insira a sua sigla: ");
     scanf("%s",sigla);
     do{
-        printf ("\nBem-Vindo, %s (%s)!\n", nome, sigla);
+        printf ("Bem-Vindo, %s (%s)!\n", nome, sigla);
         printf ("1- Jogo Curto\n");
         printf ("2- Jogo Normal\n");
         printf ("0- SAIR\n\n");
-        printf ("INSIRA OPÇÃO: \n");
+        printf ("INSIRA OPÇÃO: ");
         scanf("%d", &opcao);
 
         switch (opcao) {

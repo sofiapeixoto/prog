@@ -11,13 +11,13 @@ void mostrarPerguntas(Perguntas pergunta){
 int lerResposta(Perguntas pergunta){
     int resposta;
 
-    printf("Resposta:\n");
+    printf("\nResposta:");
     scanf("%d", &resposta);
     if(resposta == pergunta.rcerta){
-        printf("ACERTOU! +5");
+        printf("ACERTOU! +5\n\n");
         return 5;
     }else{
-        printf("Errou!");
+        printf("Errou!\n\n");
         return 0;
     }
 }
@@ -32,7 +32,7 @@ int jaRespondida(int id, int perguntasRespondidas[]){
 
 int grupo1(int *numrespondidas, int numperguntas, Perguntas perguntas[], int perguntasRespondidas[], int totalperguntas){
     srand(time(NULL));
-    printf("SELECIONA A CORRETA!! Selecionar a opção correta dentro de 4 hipóteses. Não retira pontos!!\n");
+    printf("\nSELECIONA A CORRETA!! Selecionar a opção correta dentro de 4 hipóteses. Não retira pontos!!\n\n");
     int id = 0, pontos = 0;
 
     do{
