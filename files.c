@@ -60,7 +60,7 @@ int lerPerguntasOrdem(PerguntasOrdem perguntas[]) {
 //* Função de Baralhar Perguntas do Grupo 1.
 // Baralha-se as perguntas para terem uma ordem aleatória sempre que se for jogar. 
 
-void baralharPerguntasOrdem (PerguntasOrdem perguntas[], int totalperguntas) {
+void baralharPerguntasOrdem(PerguntasOrdem perguntas[], int totalperguntas) {
     srand(time(NULL));
     for (int i = totalperguntas - 1; i > 0; i--) {
         int j = rand() % (i + 1);
@@ -70,6 +70,7 @@ void baralharPerguntasOrdem (PerguntasOrdem perguntas[], int totalperguntas) {
     }
 }
 
+
 //* Função de Meter as Perguntas do Grupo 3.
 // Criamos um ficheiro .txt que contém TODAS as perguntas do GRUPO3.   
 
@@ -77,19 +78,19 @@ void baralharPerguntasOrdem (PerguntasOrdem perguntas[], int totalperguntas) {
     PerguntasOrdem pergunta;
     printf("Pergunta: \n"); 
     fgets(pergunta.pergunta, 300, stdin);
-    pergunta.pergunta[strcspn(pergunta.pergunta, "\n")] = '\0'
+    pergunta.pergunta[strcspn(pergunta.pergunta, "\n")] = '\0';
             
     printf("Resposta1: "); 
     fgets(pergunta.r1, 100, stdin);
-    pergunta.r1[strcspn(pergunta.r1, "\n")] = '\0'
+    pergunta.r1[strcspn(pergunta.r1, "\n")] = '\0';
             
     printf("Resposta2: "); 
     fgets(pergunta.r2, 100, stdin);
-    pergunta.r2[strcspn(pergunta.r2, "\n")] = '\0'
+    pergunta.r2[strcspn(pergunta.r2, "\n")] = '\0';
             
     printf("Resposta3: "); 
     fgets(pergunta.r3, 100, stdin);
-    pergunta.r3[strcspn(pergunta.r3, "\n")] = '\0'
+    pergunta.r3[strcspn(pergunta.r3, "\n")] = '\0';
             
     printf("Resposta certa: "); 
     scanf("%d", &pergunta.rcerta);
@@ -147,22 +148,21 @@ void entraradmin(){
 
                     switch (grupos) {
                         case 1:
-                            meterPerguntas1();
+                            void meterPerguntas1();
                             break;
 
                         case 2:
-                            grupo_2_admin();
+                            void grupo_2_admin();
                             break;
 
                         case 3:
-                            meterPerguntaOrdem();
+                            void meterPerguntaOrdem();
                             break;
 
                         default:
                             printf("Opção inválida!\n");
                             break;
                     }
-                    return 0; 
                 } else {
                     printf("NÃO ESTÁ AUTORIZADO!!!\n");
                 }
@@ -173,8 +173,6 @@ void entraradmin(){
             printf("Opção inválida!\n");
             break;
     }
-
-    return 0;
 }
 
 
