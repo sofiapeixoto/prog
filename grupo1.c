@@ -68,14 +68,17 @@ Perguntas1 perguntas[30];
     printf("Resposta certa: %d\n", perguntas[i].rcerta);
     }
     
-    srand(time(NULL));
-    int randomPergunta = rand()% i;
+    
+        
+        FILE *ficheiroLer;
+        ficheiroLer =fopen("perguntas_grupo_1.txt", "r");
+        int lerperguntas1.(Perguntas1 perguntas[30]) {
+        srand(time(NULL));
+        int randomPergunta = rand()% i;
      
         printf("Pergunta: %s\n", perguntas[randomPergunta].pergunta);
         printf("R1: %s\n", perguntas[randomPergunta].r1);
         printf("R2: %s\n", perguntas[randomPergunta].r2);
         printf("R3: %s\n", perguntas[randomPergunta].r3);
         printf("R4: %s\n", perguntas[randomPergunta].r4);
-    
-    
-}
+    }
