@@ -1,65 +1,106 @@
 #include "files.h"
 //
-void OrdemFile(){
-    char pergunta[300];
-    char r1[100], r2[100], r3[100], linha[100],*str[4];
-    int rcerta;
-    int i = 0;
     
+    typedef struct {
+        char pergunta[300];
+        char r1[100];
+        char r2[100];
+        char r3[100];
+        int rcerta;
+    } PerguntasOrdem;
     
-    printf("Pergunta: \n"); 
-    fgets(pergunta, 300, stdin);
-    printf("Resposta1: "); 
-    fgets(r1, 100, stdin);
-    printf("Resposta2: "); 
-    fgets(r2, 100, stdin);
-    printf("Resposta3: "); 
-    fgets(r3, 100, stdin);
-    printf("Resposta certa: "); 
-    scanf("%d", &rcerta);
+//* Função de Ler Perguntas do Grupo 3. 
+// Criamos um ficheiro para ler as perguntas (r). Limitamos o número máximo de perguntas para 30. 
+// Verificamos de linha a linha a pergunta e as respostas que estão separadas por ';' .
+// O número total de perguntas vai ser adicionado até á última linha.  
     
-FILE *ficheirordem;
-    ficheirordem= fopen("perguntasordem.txt","a+");
+int lerPerguntasOrdem(PerguntasOrdem perguntas[]) {
+  
+    FILE *LerperguntasOrdem;
+            
+    LerperguntasOrdem= fopen("perguntasordem.txt", "r");
     
+        if (LerperguntasOrdem == NULL) {
+            printf("Não foi possível abrir o ficheiro.\n");
+        return 0;
+        }
+        
+    int totalperguntas = 0;
+    char linha[700];
+    
+    while (fgets(linha, sizeof(linha), LerperguntasOrdem) != NULL && totalperguntas < 30) {
+        char *token = strtok(linha, ";");
+        if (token != NULL) {
+            strncpy(perguntas[totalperguntas].pergunta, token, sizeof(perguntas[totalperguntas].pergunta) - 1);
 
-    fprintf(ficheirordem, "%s;%s;%s;%s;%d\n", pergunta, r1 ,r2 ,r3 ,rcerta);
+            token = strtok(NULL, ";");
+            if (token != NULL)
+                strncpy(perguntas[totalperguntas].r1, token, sizeof(perguntas[totalperguntas].r1) - 1);
+
+            token = strtok(NULL, ";");
+            if (token != NULL)
+                strncpy(perguntas[totalperguntas].r2, token, sizeof(perguntas[totalperguntas].r2) - 1);
+
+            token = strtok(NULL, ";");
+            if (token != NULL)
+                strncpy(perguntas[totalperguntas].r3, token, sizeof(perguntas[totalperguntas].r3) - 1);
+
+            token = strtok(NULL, ";");
+            if (token != NULL)
+                perguntas[totalperguntas].rcerta = atoi(token);
+
+            totalperguntas++;
+        }
+    }
+
+    fclose(LerperguntasOrdem);
+    return totalperguntas;
+}
+
+//* Função de Baralhar Perguntas do Grupo 1.
+// Baralha-se as perguntas para terem uma ordem aleatória sempre que se for jogar. 
+
+void baralharPerguntasOrdem (PerguntasOrdem perguntas[], int totalperguntas) {
+    srand(time(NULL));
+    for (int i = totalperguntas - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        PerguntasOrdem temp = perguntas[i];
+        perguntas[i] = perguntas[j];
+        perguntas[j] = temp;
+    }
+}
+
+//* Função de Meter as Perguntas do Grupo 3.
+// Criamos um ficheiro .txt que contém TODAS as perguntas do GRUPO3.   
+
+ void meterPerguntaOrdem(){
+    PerguntasOrdem pergunta;
+    printf("Pergunta: \n"); 
+    fgets(pergunta.pergunta, 300, stdin);
+    printf("Resposta1: "); 
+    fgets(pergunta.r1, 100, stdin);
+    printf("Resposta2: "); 
+    fgets(pergunta.r2, 100, stdin);
+    printf("Resposta3: "); 
+    fgets(pergunta.r3, 100, stdin);
+    printf("Resposta certa: "); 
+    scanf("%d", &pergunta.rcerta);
     
+    FILE *ficheirordem;
+    ficheirordem= fopen("perguntasordem.txt","a+");
     if (ficheirordem==NULL){
         printf("Impossível abrir o ficheiro!");
     }
-
-    while(fgets(linha, sizeof(linha), ficheirordem)!=NULL){
-        char* token = strtok(linha,";");
-        while (token != NULL) {
-            //printf("%s\n", token);
-            str[i] = token;
-            token = strtok(NULL,";");
-            i++;      
-    }
-        
-   if(i==4){
-            str[0]=pergunta;
-            str[1]= r1;
-            str[2]= r2;
-            str[3]= r3;
-            str[4]= rcerta; 
-            i++;
-        }
-    }
+   
+    fprintf(ficheirordem, "%s;%s;%s;%s;%d\n", pergunta.pergunta, pergunta.r1 ,pergunta.r2, pergunta.r3 ,pergunta.rcerta);
     fclose(ficheirordem);
-
-    for(int j=0; j<i; j++){
-
-    printf("1º pergunta: %s\n", str[j]= pergunta);
-    printf("1Resposta 1: %s\n", str[j]= r1);
-    printf("Resposta 2: %s\n", str[j]= r2);
-    printf("Resposta 3: %s\n", str[j]= r3);
-    printf("Resposta certa: %s", str[j]= rcerta);
-    }
-
-
 }
-
+ 
+// Função de escolha entre Jogador e Administrador
+ // Damos a opçao ao utilizador. Se quiser ser jogador pergunta o nome e a sigla para poder começar a jogar.
+ // Se escolher Administrador tem que colocar as credenciais.
+ // Se as credenciais estiverem erradas volta a pedir para escolher entre jogador ou administrador.
+ 
 void entraradmin(){
     int admin, grupos;
     char nome[50], sigla[10],utilizador[50], password[10] ;
@@ -67,55 +108,66 @@ void entraradmin(){
     char utilizador2[] = "ines";
     char password1[] = "2006";
     
-    printf("(1)Jogador ou (2)admin\n");
+    printf("(1)Jogador ou (2)Administrador ?\n");
     scanf("%d",&admin);
     getchar();
     
     switch (admin){
-        case 1:
-        printf("Insira o seu nome: ");
-        fgets(nome, sizeof(nome), stdin);
-        nome[strcspn(nome, "\n")] = 0;
-        printf("Insira a sua sigla: ");
-        fgets(sigla, sizeof(sigla), stdin);
-        sigla[strcspn(sigla, "\n")] = 0;  
-        break;
+     case 1:
+            printf("Insira o seu nome: ");
+            fgets(nome, sizeof(nome), stdin);
+           
+            printf("Insira a sua sigla: ");
+            fgets(sigla, sizeof(sigla), stdin);
+            
+
+            break;
         
         case 2:
-        printf("Utilizador:");
-        scanf("%s",utilizador);
-        printf("Password:");
-        scanf("%s",password);
-        if ((strcmp(utilizador, utilizador1) == 0 || strcmp(utilizador, utilizador2) == 0) && strcmp(password, password1) == 0) {
-            
-            printf("Acesso autorizado!\n");
-            printf("Qual grupo deseja aceder?\n (1)Grupo1\n (2)Grupo2\n (3)Grupo3\n" );
-            scanf("%d", &grupos);
-            switch (grupos){
-               
-            case 1:
-                grupo_1_admin();
+            while (1) {
+                printf("Utilizador: ");
+                scanf("%s", utilizador);
+
+                printf("Password: ");
+                scanf("%s", password);
+
+                if ((strcmp(utilizador, utilizador1) == 0 || strcmp(utilizador, utilizador2) == 0) && strcmp(password, password1) == 0) {
+                    printf("Acesso autorizado!\n");
+                    printf("Qual grupo deseja aceder?\n (1)Grupo1\n (2)Grupo2\n (3)Grupo3\n");
+                    scanf("%d", &grupos);
+
+                    switch (grupos) {
+                        case 1:
+                            meterPerguntas1();
+                            break;
+
+                        case 2:
+                            grupo_2_admin();
+                            break;
+
+                        case 3:
+                            meterPerguntaOrdem();
+                            break;
+
+                        default:
+                            printf("Opção inválida!\n");
+                            break;
+                    }
+                    return 0; 
+                } else {
+                    printf("NÃO ESTÁ AUTORIZADO!!!\n");
+                }
+            }
             break;
-            
-            case 2:
-                grupo_2_admin();
+
+        default:
+            printf("Opção inválida!\n");
             break;
-            
-            case 3:
-                OrdemFile();
-                   
-                break;
-            default:
-                printf("Opção inválida!\n");
-                break;
-            }   
-        }else{
-           printf("NÃO ESTÁ AUTORIZADO!!!");
-        
-        }
-    }    
+    }
 
-
-
-
+    return 0;
 }
+
+
+
+
