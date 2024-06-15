@@ -1,6 +1,3 @@
-//
-// Created by Sofia on 13/06/2024.
-//
 
 #ifndef FILES_H
 #define FILES_H
@@ -10,7 +7,16 @@
 #include <time.h>
 #include <string.h>
 
-void OrdemFile();
-void grupo_1_admin();
+typedef struct {
+        char pergunta[300];
+        char r1[100];
+        char r2[100];
+        char r3[100];
+        int rcerta;
+    } PerguntasOrdem;
+    
+void meterPerguntaOrdem();
+int lerPerguntasOrdem(PerguntasOrdem perguntas[]);
+void baralharPerguntasOrdem (PerguntasOrdem perguntas[], int totalperguntas);
 void entraradmin();
 #endif //TRABALHO_PRATICO_FILES_H
