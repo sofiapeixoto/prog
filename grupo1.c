@@ -2,11 +2,11 @@
 
 void grupo_1_admin(){
 typedef struct{
-    char pergunta[20];
-    char r1[50];
-    char r2[50];
-    char r3[50];
-    char r4[50];
+    char pergunta[300];
+    char r1[100];
+    char r2[100];
+    char r3[100];
+    char r4[100];
     int rcerta;
 }Perguntas1;
 
@@ -15,7 +15,7 @@ Perguntas1 perguntas[30];
 
     FILE *ficheiro;
     char linha[300];
-    char str[30];
+    char str[100];
     int i=0;
     
     
