@@ -10,7 +10,7 @@
 int main() {
     int numperguntas, pontos, potuacao=0, op;
     char nome[20], sigla[10];
-    int i=0
+    int i=0;
     printf("Bem-Vindo ao jogo de EMECA!!!\n");
     
     void entraradmin();
@@ -40,7 +40,10 @@ int main() {
     
     printf("SELECIONA A CORRETA!! Selecionar a opção correta dentro de 4 hipóteses. Não retira pontos!!");
     
+    int lerPerguntas1(Perguntas1 perguntas1[]); 
+        
+    void baralharPerguntas1(Perguntas1 perguntas1[], int totalperguntas);
     
-    
-    
+    void meterPerguntas1();
+        
 }
