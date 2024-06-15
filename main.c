@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-
 #include "files.h"
-
+#include "grupo1.h"
+#include "grupo2.h"
 
 
 int main() {
@@ -13,7 +13,7 @@ int main() {
     int i=0
     printf("Bem-Vindo ao jogo de EMECA!!!\n");
     
-    entraradmin();
+    void entraradmin();
     
     printf ("\nBem-Vindo, %s (%s)!\n", nome, sigla);
     printf ("1- Jogo Curto\n");
