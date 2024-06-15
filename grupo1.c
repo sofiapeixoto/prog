@@ -1,12 +1,12 @@
 #include "grupo1.h"
-typedef struct{
+typedef struct {
     char pergunta[300];
     char r1[100];
     char r2[100];
     char r3[100];
     char r4[100];
     int rcerta;
-}Perguntas1;
+} Perguntas1;
 
 //* Função de Ler Perguntas do Grupo 1. 
 // Criamos um ficheiro para ler as perguntas (r). Limitamos o número máximo de perguntas para 50. 
@@ -82,23 +82,23 @@ void meterPerguntas1(){
     
     printf("Pergunta: "); 
     fgets(perguntas.pergunta, 300, stdin);
-    perguntas.pergunta[strcspn(perguntas.pergunta, "\n")] = '\0'
+    perguntas.pergunta[strcspn(perguntas.pergunta, "\n")] = '\0';
             
     printf("Resposta 1: "); 
     fgets(perguntas.r1, 300, stdin);
-    perguntas.r1[strcspn(perguntas.r1, "\n")] = '\0'
+    perguntas.r1[strcspn(perguntas.r1, "\n")] = '\0';
             
     printf("Resposta 2: "); 
     fgets(perguntas.r2, 300, stdin);
-    perguntas.r2[strcspn(perguntas.r2, "\n")] = '\0'
+    perguntas.r2[strcspn(perguntas.r2, "\n")] = '\0';
             
     printf("Resposta 3: ");
     fgets(perguntas.r3, 300, stdin);
-    perguntas.r3[strcspn(perguntas.r3, "\n")] = '\0'
+    perguntas.r3[strcspn(perguntas.r3, "\n")] = '\0';
             
     printf("Resposta 4: ");
     fgets(perguntas.r4, 300, stdin);
-    perguntas.r4[strcspn(perguntas.r4, "\n")] = '\0'
+    perguntas.r4[strcspn(perguntas.r4, "\n")] = '\0';
             
     printf("Resposta certa: ");scanf("%d",&perguntas.rcerta); 
     getchar();
