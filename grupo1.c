@@ -1,12 +1,5 @@
 #include "grupo1.h"
-typedef struct {
-    char pergunta[300];
-    char r1[100];
-    char r2[100];
-    char r3[100];
-    char r4[100];
-    int rcerta;
-} Perguntas1;
+
 
 int lerPerguntas1(Perguntas1 perguntas1[]) {        
     FILE *ficheiroLer;
