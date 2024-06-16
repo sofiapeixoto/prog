@@ -85,10 +85,10 @@ int grupo1(int *numrespondidas, int numperguntas, int *numcertas, Perguntas perg
 
     do{
         do {
-            id = rand() % (totalperguntas + 1);
+            id = rand() % (totalperguntas);
         }while(jaRespondida(id, perguntasRespondidas));
         perguntasRespondidas[*numrespondidas] = id;
-
+        printf("%d", id);
         Perguntas pergunta = perguntas[id];
         mostrarPerguntas(pergunta);
         pontos += lerResposta(pergunta, numcertas);
@@ -108,10 +108,10 @@ int grupo2(int *numrespondidas, int numperguntas,int *numcertas, Perguntas pergu
 
     do{
         do {
-            id = rand() % (totalperguntas + 1);
+            id = rand() % (totalperguntas);
         }while(jaRespondida(id, perguntasRespondidas));
         perguntasRespondidas[*numrespondidas] = id;
-
+        printf("%d", id);
         Perguntas pergunta = perguntas[id];
         mostrarPerguntas(pergunta);//chamada a função de mostrar perguntas (grupo2 que é a mesma para o grupo1)
         pontos += lerResposta1(pergunta, numcertas);
@@ -131,7 +131,7 @@ int grupo3(int *numrespondidas, int numperguntas,int *numcertas, PerguntasOrdem 
 
     do{
         do {
-            id = rand() % (totalperguntas + 1);
+            id = rand() % (totalperguntas);
         }while(jaRespondida(id, perguntasRespondidas));
         perguntasRespondidas[*numrespondidas] = id;
         printf("%d", id);
