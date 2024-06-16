@@ -13,5 +13,7 @@
 #include "jogo.h"
 
 void menuPrincipal();
+void menuJogador();
+void menuAdmin();
 
 #endif //TRABALHO_PRATICO_MENUS_H

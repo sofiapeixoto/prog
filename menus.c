@@ -1,7 +1,7 @@
 #include "menus.h"
 
 void menuJogador(){
-    int opcao, pontuacao, numperguntas, respostascertas;
+    int opcao, pontuacao, numperguntas, numcertas;
     char nome[20], sigla[10];
     printf("Insira o seu nome: ");
     scanf("%s",nome);
@@ -17,10 +17,11 @@ void menuJogador(){
 
         switch (opcao) {
             case 1:
-                pontuacao = jogo(2, &numperguntas, &respostascertas);
+                
+                pontuacao = jogo(2, &numperguntas, &numcertas);
                 break;
             case 2:
-                pontuacao = jogo(4, &numperguntas, &respostascertas);
+                pontuacao = jogo(4, &numperguntas, &numcertas);
                 break;
             case 0:
                 printf("A sair do jogo...\n");
@@ -30,21 +31,22 @@ void menuJogador(){
         }
         
         if(opcao == 1 || opcao == 2){
+            
             guardarPontuacao(nome, sigla, pontuacao);
             
             printf("Pontuação Final: %d ", pontuacao);
             
-            int percentagemcertas,*numcertas,numerradas;
+            int percentagemcertas;
+            percentagemcertas = (numcertas * 100) / numperguntas;
+            printf("Percentagem de Perguntas Certas: %d%% ", percentagemcertas);
             
-            percentagemcertas=(totalcertas / numperguntas)*100;
-            printf("Percentagem de Perguntas Certas: %d \%",percentagemcertas);
-            
-            numerradas=numperguntas-numcertas;
+            int numerradas;
+            numerradas = numperguntas-numcertas;
             printf("Total de Perguntas Certas: %d\n Total de Perguntas Erradas: %d\n", numcertas,numerradas);
             
             RANKING utilizadores[100];
             int totalutilizadores = lerPontuacao(utilizadores);
-            mostrarRanking(utilizadores,&totalutilizadores);
+            mostrarRanking(utilizadores, totalutilizadores);
             
             opcao = 0;
         }

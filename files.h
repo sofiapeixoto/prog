@@ -24,6 +24,12 @@ typedef struct {
     int rcerta;
 } PerguntasOrdem;
 
+typedef struct {
+    int pontuacao;
+    char sigla[10];
+    char nome[50];
+} RANKING;
+
 /* PERGUNTAS NORMAIS */
 int lerPerguntas(Perguntas perguntas[]);
 void baralharPerguntas(Perguntas perguntas[], int totalperguntas);
@@ -34,5 +40,10 @@ int lerPerguntasOrdem(PerguntasOrdem perguntas[]);
 void baralharPerguntasOrdem(PerguntasOrdem perguntas[], int totalperguntas);
 void meterPerguntaOrdem();
 
+/*RANKING*/
+void guardarPontuacao(char nome[], char sigla[], int pontuacao);
+int lerPontuacao(RANKING utilizador[]);
+void bubbleSortDescending(RANKING rankings[], int n);
+void mostrarRanking(RANKING rankings[], int totalutilizadores);
 #endif // FILES_H
 

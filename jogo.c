@@ -84,7 +84,7 @@ int grupo1(int *numrespondidas, int *numperguntas,int *numcertas, Perguntas perg
         pontos += lerResposta(pergunta, numcertas);
 
         (*numrespondidas)++;
-    }while(*numrespondidas % numperguntas != 0);
+    }while(*numrespondidas % *numperguntas != 0);
 
     return pontos;
 }
@@ -105,7 +105,7 @@ int grupo2(int *numrespondidas, int *numperguntas,int *numcertas, Perguntas perg
         pontos += lerResposta1(pergunta, numcertas);
 
         (*numrespondidas)++;
-    }while(*numrespondidas % numperguntas != 0);
+    }while(*numrespondidas % *numperguntas != 0);
 
     return pontos;
 }
@@ -126,7 +126,7 @@ int grupo3(int *numrespondidas, int *numperguntas,int *numcertas, PerguntasOrdem
         pontos += lerResposta2(pergunta, numcertas);
 
         (*numrespondidas)++;
-    }while(*numrespondidas % numperguntas != 0);
+    }while(*numrespondidas % *numperguntas != 0);
 
     return pontos;
 }

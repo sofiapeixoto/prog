@@ -183,34 +183,27 @@ void meterPerguntaOrdem() {
 
 
 /* RANKING*/
-void guardarPontuacao( char nome[], char sigla[], int pontuacao){
-    
-   FILE *ranking = fopen("ranking.txt", "a");
+void guardarPontuacao(char nome[], char sigla[], int pontuacao) {
+    FILE *ranking = fopen("ranking.txt", "a");
    
-   if(ranking == NULL){
+    if (ranking == NULL) {
         printf("Erro!!!");
-   }
+    }
    
-   fprintf(ranking, "%s;%s;%d", nome, sigla, pontuacao);
-   fclose(ranking);
+    fprintf(ranking, "%s;%s;%d", nome, sigla, pontuacao);
+    fclose(ranking);
 }
 
-typedef struct{
-    int pontuacao;
-    char sigla[10];
-    char nome[50];
-}RANKING;
-
-void lerPontuacao(RANKING utilizador[]){
-    
-   FILE *ranking = fopen("ranking.txt", "a");
+int lerPontuacao(RANKING utilizador[]) {
+    FILE *ranking = fopen("ranking.txt", "a"); 
    
-   if(ranking == NULL){
+    if (ranking == NULL) {
         printf("Erro!!!");
-   }
+        return 0;
+    }
    
-   int totalutilizadores = 0;
-   char linha[700];
+    int totalutilizadores = 0;
+    char linha[700];
 
     while (fgets(linha, sizeof(linha), ranking) != NULL) {
         char *token = strtok(linha, ";");
@@ -230,8 +223,8 @@ void lerPontuacao(RANKING utilizador[]){
     }
 
     fclose(ranking);
+    return totalutilizadores;
 }
-
 
 void bubbleSortDescending(RANKING rankings[], int n) {
     int trocado;
@@ -251,8 +244,7 @@ void bubbleSortDescending(RANKING rankings[], int n) {
 
 void mostrarRanking(RANKING rankings[], int totalutilizadores) {
     bubbleSortDescending(rankings, totalutilizadores);
-    for (int i = 0; i < 3; ++i) {
-        printf("%s (%s): %d", rankings[i].nome, rankings[i].nome, rankings[i].nome);
+    for (int i = 0; i < 3 && i < totalutilizadores; ++i) {
+        printf("%s (%s): %d\n", rankings[i].nome, rankings[i].sigla, rankings[i].pontuacao);
     }
-    printf("\n");
 }
