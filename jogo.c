@@ -68,10 +68,10 @@ int jaRespondida(int id, int perguntasRespondidas[]){
     return 0;
 }
 
-int grupo1(int *numrespondidas, int *numperguntas,int *numcertas, Perguntas perguntas[], int perguntasRespondidas[], int totalperguntas){
+int grupo1(int *numrespondidas, int numperguntas, int *numcertas, Perguntas perguntas[], int perguntasRespondidas[], int totalperguntas){
     srand(time(NULL));
     printf("\nSELECIONA A CORRETA!! Selecionar a opção correta dentro de 4 hipóteses. Não retira pontos!!\n\n");
-    int id = 0, pontos = 0;
+    int id = 0, pontos = 0, lol = 0;
 
     do{
         do {
@@ -84,12 +84,12 @@ int grupo1(int *numrespondidas, int *numperguntas,int *numcertas, Perguntas perg
         pontos += lerResposta(pergunta, numcertas);
 
         (*numrespondidas)++;
-    }while(*numrespondidas % *numperguntas != 0);
+    }while((*numrespondidas % numperguntas) != 0);
 
     return pontos;
 }
 
-int grupo2(int *numrespondidas, int *numperguntas,int *numcertas, Perguntas perguntas[], int perguntasRespondidas[], int totalperguntas){
+int grupo2(int *numrespondidas, int numperguntas,int *numcertas, Perguntas perguntas[], int perguntasRespondidas[], int totalperguntas){
     srand(time(NULL));
     printf("\nFUGA DE PONTOS!! Selecionar a opção correta dentro de 4 hipóteses. Se errar, a pontuação é retirada!\n\n");
     int id = 0, pontos = 0;
@@ -105,12 +105,12 @@ int grupo2(int *numrespondidas, int *numperguntas,int *numcertas, Perguntas perg
         pontos += lerResposta1(pergunta, numcertas);
 
         (*numrespondidas)++;
-    }while(*numrespondidas % *numperguntas != 0);
+    }while(*numrespondidas % numperguntas != 0);
 
     return pontos;
 }
 
-int grupo3(int *numrespondidas, int *numperguntas,int *numcertas, PerguntasOrdem perguntas[], int perguntasRespondidas[], int totalperguntas){
+int grupo3(int *numrespondidas, int numperguntas,int *numcertas, PerguntasOrdem perguntas[], int perguntasRespondidas[], int totalperguntas){
     srand(time(NULL));
     printf("\nORDENAR!! Colocar por ordem as 3 opções apresentadas. Não são retirados pontos!\n\n");
     int id = 0, pontos = 0;
@@ -126,13 +126,13 @@ int grupo3(int *numrespondidas, int *numperguntas,int *numcertas, PerguntasOrdem
         pontos += lerResposta2(pergunta, numcertas);
 
         (*numrespondidas)++;
-    }while(*numrespondidas % *numperguntas != 0);
+    }while(*numrespondidas % numperguntas != 0);
 
     return pontos;
 }
 
-int jogo(int *numperguntas, int *numrespondidas, int *numcertas){
-    int pontuacao;
+int jogo(int numperguntas, int *numrespondidas, int *numcertas){
+    int pontuacao = 0;
     Perguntas perguntas[50];
     int perguntasRespondidas[50];
     
