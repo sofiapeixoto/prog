@@ -12,6 +12,8 @@
 #include "files.h"
 #include "jogo.h"
 
+//menus.h precisa de ter apenas a função menuPrincipal em público para ser utilizada no ficheiro main.c em que menus.h está incluido
+
 void menuPrincipal();
 void menuJogador();
 void menuAdmin();

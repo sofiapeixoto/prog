@@ -3,7 +3,7 @@
 /* PERGUNTAS NORMAIS */
 int lerPerguntas(Perguntas perguntas[]) {
     FILE *ficheiro;
-    ficheiro = fopen("perguntas.txt", "r");
+    ficheiro = fopen("perguntas.txt", "r");//cria ficheiro com as perguntas do grupo 1 e 2
 
     if (ficheiro == NULL) {
         printf("Não foi possível abrir o ficheiro.\n");
@@ -12,7 +12,9 @@ int lerPerguntas(Perguntas perguntas[]) {
 
     int totalperguntas = 0;
     char linha[700];
-
+    
+/*Pegar linha a linha e vai dividir confrome ; para saber a pergunta, as opçoes e a resposta*/
+    
     while (fgets(linha, sizeof(linha), ficheiro) != NULL && totalperguntas < 50) {
         char *token = strtok(linha, ";");
         if (token != NULL) {
@@ -190,12 +192,12 @@ void guardarPontuacao(char nome[], char sigla[], int pontuacao) {
         printf("Erro!!!");
     }
    
-    fprintf(ranking, "%s;%s;%d", nome, sigla, pontuacao);
+    fprintf(ranking, "\n%s;%s;%d", nome, sigla, pontuacao);
     fclose(ranking);
 }
 
 int lerPontuacao(RANKING utilizador[]) {
-    FILE *ranking = fopen("ranking.txt", "a"); 
+    FILE *ranking = fopen("ranking.txt", "r"); 
    
     if (ranking == NULL) {
         printf("Erro!!!");
@@ -203,21 +205,23 @@ int lerPontuacao(RANKING utilizador[]) {
     }
    
     int totalutilizadores = 0;
-    char linha[700];
+    char linha[50];
 
     while (fgets(linha, sizeof(linha), ranking) != NULL) {
+        linha[strcspn(linha, "\n")] = '\0';
+        
         char *token = strtok(linha, ";");
         if (token != NULL) {
-            utilizador[totalutilizadores].pontuacao = atoi(token);
-
-            token = strtok(NULL, ";");
-            if (token != NULL)
-                strncpy(utilizador[totalutilizadores].nome, token, sizeof(utilizador[totalutilizadores].nome) - 1);
+            strncpy(utilizador[totalutilizadores].nome, token, sizeof(utilizador[totalutilizadores].nome) - 1);
 
             token = strtok(NULL, ";");
             if (token != NULL)
                 strncpy(utilizador[totalutilizadores].sigla, token, sizeof(utilizador[totalutilizadores].sigla) - 1);
             
+            token = strtok(NULL, ";");
+            if (token != NULL)
+                utilizador[totalutilizadores].pontuacao = atoi(token);
+           
             totalutilizadores++;
         }
     }
@@ -244,7 +248,14 @@ void bubbleSortDescending(RANKING rankings[], int n) {
 
 void mostrarRanking(RANKING rankings[], int totalutilizadores) {
     bubbleSortDescending(rankings, totalutilizadores);
+    if (totalutilizadores <= 0) {
+        printf("\nNão exitem jogadores para mostrar!\n");
+        return;
+    }
+    printf("\nRanking (top 3):\n");
     for (int i = 0; i < 3 && i < totalutilizadores; ++i) {
         printf("%s (%s): %d\n", rankings[i].nome, rankings[i].sigla, rankings[i].pontuacao);
     }
+    
+    printf("\n");
 }

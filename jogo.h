@@ -9,6 +9,6 @@
 #include "files.h"
 #include "menus.h"
 
-int jogo(int numperguntas, int *numrespondidas, int *numcertas);
+int jogo(int numperguntas, int *numcertas); //jogo.h precisa de ter apenas a função jogo em público para ser utilizada noutro ficheiro em que jogo.h esteja incluido
 
 #endif //TRABALHO_PRATICO_JOGO_H

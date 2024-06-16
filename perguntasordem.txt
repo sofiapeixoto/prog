@@ -6,7 +6,7 @@ Ordene os planetas do Sistema Solar pela distância do Sol, do mais próximo ao 
 Organize os elementos químicos pelo seu número atômico, do menor para o maior:;Hidrogênio;Carbono;Oxigênio;123
 Ordene os seguintes autores pela data de nascimento:;Charles Dickens;J.K. Rowling;William Shakespeare;312
 Coloque os livros a seguir em ordem de publicação:;"Orgulho e Preconceito" de Jane Austen;"Dom Quixote" de Miguel de Cervantes;"1984" de George Orwell;213
-Ordene os filmes pela data de lançamento:; "O Padrinho";"E.T. - O Extraterrestre";"Titanic";123
+Ordene os filmes pela data de lançamento:;"O Padrinho";"E.T. - O Extraterrestre";"Titanic";123
 Organize os diretores de cinema pela data de nascimento:;Steven Spielberg;Alfred Hitchcock;Martin Scorsese;231
 Organize os jogadores de futebol pelo ano em que ganharam a Bola de Ouro:;Lionel Messi;Cristiano Ronaldo;Ronaldinho Gaúcho;321
 Coloque os seguintes álbuns em ordem de lançamento:;"Thriller" de Michael Jackson;"Abbey Road" dos Beatles;"Back in Black" do AC/DC;231

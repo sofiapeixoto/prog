@@ -1,4 +1,4 @@
-#include "jogo.h"
+#include "jogo.h" // o ficheiro jogo.c precisa de ter incluido o jogo.h 
 
 void mostrarPerguntas(Perguntas pergunta){
     printf("%s\n", pergunta.pergunta);
@@ -15,20 +15,26 @@ void mostrarPerguntasOrdem (PerguntasOrdem perguntas){
     printf("%s\n", perguntas.r3);
 }
 
+/*FUNÇÃO PARA LER A RESPOSTA DO GRUPO1. Compara a resposta dada pelo jogador com a resposta certa. */
 int lerResposta(Perguntas pergunta, int *numcertas){
     int resposta;
 
     printf("\nResposta:");
     scanf("%d", &resposta);
+    getchar();
+    
     if(resposta == pergunta.rcerta){
-        printf("ACERTOU! +5\n\n");
+        printf("ACERTOU! +5 PONTOS!!\n\n");
         (*numcertas)++;
         return 5;
     }else{
-        printf("Errou!\n\n");
+        printf("ERROU!!!\n\n");
         return 0;
     }
 }
+
+/*FUNÇÃO PARA LER A RESPOSTA DO GRUPO2. Compara a resposta dada pelo jogador com a resposta certa. */
+
 int lerResposta1(Perguntas pergunta,int *numcertas){
     int resposta;
     
@@ -36,14 +42,16 @@ int lerResposta1(Perguntas pergunta,int *numcertas){
     printf("\nResposta:");
     scanf("%d", &resposta);
     if(resposta == pergunta.rcerta){
-        printf("ACERTOU! +5\n\n");
+        printf("ACERTOU! +5 PONTOS!!!\n\n");
         (*numcertas)++;
         return 5;
     }else{
-        printf("Errou! -2 Pontos \n\n");
+        printf("ERROU!!! -2 PONTOS!!! \n\n");
         return -2;
     }
 }
+
+/*FUNÇÃO PARA LER A RESPOSTA DO GRUPO3. Compara a resposta dada pelo jogador com a resposta certa. */
 
 int lerResposta2(PerguntasOrdem perguntas, int *numcertas){
     int resposta;
@@ -51,14 +59,15 @@ int lerResposta2(PerguntasOrdem perguntas, int *numcertas){
     printf("\nResposta:");
     scanf("%d", &resposta);
     if(resposta == perguntas.rcerta){
-        printf("ACERTOU! +5\n\n");
+        printf("ACERTOU! +5 PONTOS!!! \n\n");
         (*numcertas)++;
         return 5;
     }else{
-        printf("Errou!\n\n");
+        printf("ERROU!!!\n\n");
         return 0;
     }
 }
+/*Guarda o id da pergunta respondida para não se repetir*/
 
 int jaRespondida(int id, int perguntasRespondidas[]){
     for(size_t i = 0; i < 50; i++) {
@@ -68,10 +77,11 @@ int jaRespondida(int id, int perguntasRespondidas[]){
     return 0;
 }
 
+/*COLOCA AS PERGUNTAS ALEATORIAS. Escolhe um id aleatorio de uma pergunta e troca.  */
 int grupo1(int *numrespondidas, int numperguntas, int *numcertas, Perguntas perguntas[], int perguntasRespondidas[], int totalperguntas){
     srand(time(NULL));
     printf("\nSELECIONA A CORRETA!! Selecionar a opção correta dentro de 4 hipóteses. Não retira pontos!!\n\n");
-    int id = 0, pontos = 0, lol = 0;
+    int id = 0, pontos = 0;
 
     do{
         do {
@@ -89,6 +99,8 @@ int grupo1(int *numrespondidas, int numperguntas, int *numcertas, Perguntas perg
     return pontos;
 }
 
+/*COLOCA AS PERGUNTAS ALEATORIAS. Escolhe um id aleatorio de uma pergunta e troca.  */
+
 int grupo2(int *numrespondidas, int numperguntas,int *numcertas, Perguntas perguntas[], int perguntasRespondidas[], int totalperguntas){
     srand(time(NULL));
     printf("\nFUGA DE PONTOS!! Selecionar a opção correta dentro de 4 hipóteses. Se errar, a pontuação é retirada!\n\n");
@@ -101,7 +113,7 @@ int grupo2(int *numrespondidas, int numperguntas,int *numcertas, Perguntas pergu
         perguntasRespondidas[*numrespondidas] = id;
 
         Perguntas pergunta = perguntas[id];
-        mostrarPerguntas(pergunta);
+        mostrarPerguntas(pergunta);//chamada a função de mostrar perguntas (grupo2 que é a mesma para o grupo1)
         pontos += lerResposta1(pergunta, numcertas);
 
         (*numrespondidas)++;
@@ -109,6 +121,8 @@ int grupo2(int *numrespondidas, int numperguntas,int *numcertas, Perguntas pergu
 
     return pontos;
 }
+
+/*COLOCA AS PERGUNTAS ALEATORIAS. Escolhe um id aleatorio de uma pergunta e troca.  */
 
 int grupo3(int *numrespondidas, int numperguntas,int *numcertas, PerguntasOrdem perguntas[], int perguntasRespondidas[], int totalperguntas){
     srand(time(NULL));
@@ -120,9 +134,9 @@ int grupo3(int *numrespondidas, int numperguntas,int *numcertas, PerguntasOrdem 
             id = rand() % (totalperguntas + 1);
         }while(jaRespondida(id, perguntasRespondidas));
         perguntasRespondidas[*numrespondidas] = id;
-
+        printf("%d", id);
         PerguntasOrdem pergunta = perguntas[id];
-        mostrarPerguntasOrdem(pergunta);
+        mostrarPerguntasOrdem(pergunta);// chamada a função de mostrar perguntas ordem
         pontos += lerResposta2(pergunta, numcertas);
 
         (*numrespondidas)++;
@@ -130,25 +144,29 @@ int grupo3(int *numrespondidas, int numperguntas,int *numcertas, PerguntasOrdem 
 
     return pontos;
 }
+/*FUNÇÃO JOGO. Retorna a pontuação.
+ É chamada a função baralhar perguntas do grupo1 e 2 em conjunto e a funçãop baralhar do grupo3. 
+ É somada a pontuação de todos os grupos. */
 
-int jogo(int numperguntas, int *numrespondidas, int *numcertas){
+int jogo(int numperguntas, int *numcertas){
     int pontuacao = 0;
-    Perguntas perguntas[50];
+    Perguntas perguntas[50];// perguntas vai ter a mesma estrutura de PERGUNTAS
     int perguntasRespondidas[50];
+    int numrespondidas = 0;
     
     int totalperguntasFicheiro = lerPerguntas(perguntas);
     baralharPerguntas(perguntas, totalperguntasFicheiro);
 
-    pontuacao += grupo1(numrespondidas, numperguntas, numcertas, perguntas, perguntasRespondidas, totalperguntasFicheiro);
-    pontuacao += grupo2(numrespondidas, numperguntas, numcertas, perguntas, perguntasRespondidas, totalperguntasFicheiro);
+    pontuacao += grupo1(&numrespondidas, numperguntas, numcertas, perguntas, perguntasRespondidas, totalperguntasFicheiro);
+    pontuacao += grupo2(&numrespondidas, numperguntas, numcertas, perguntas, perguntasRespondidas, totalperguntasFicheiro);
     
-    PerguntasOrdem perguntasOrdem[30];
+    PerguntasOrdem perguntasOrdem[30];// perguntasOrdem vai ter a mesma estrutura de PerguntasOrdem
     int perguntasOrdemRespondidas[50];
     
     int totalperguntasOrdem = lerPerguntasOrdem(perguntasOrdem);
     baralharPerguntasOrdem(perguntasOrdem, totalperguntasOrdem);
     
-    pontuacao += grupo3(numrespondidas, numperguntas, numcertas, perguntasOrdem, perguntasOrdemRespondidas, totalperguntasOrdem);
+    pontuacao += grupo3(&numrespondidas, numperguntas, numcertas, perguntasOrdem, perguntasOrdemRespondidas, totalperguntasOrdem);
 
 
     return pontuacao;

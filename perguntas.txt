@@ -19,7 +19,7 @@ Em que ano ocorreu a 1º guerra Mundial?;1914;1939;1812;1945;1
 Qual é a velocidade da luz?;300.000 Km/s;150.000 Km/s;500.000 Km/s;100.000 Km/s;1
 Quem desenvolveu a teoria da relatividade?;Isaac Newton;Albert Einstein;Nikola Tesla;Galileu Galilei;2
 Qual é a moeda oficial do Japão?;Yuan;Yen;Won;Ringgit;2
-Qual é a montanha mais alta do mundo?;Monte Kilimanjaro;K2;Mont Blanc; Monte Everest;4
+Qual é a montanha mais alta do mundo?;Monte Kilimanjaro;K2;Mont Blanc;Monte Everest;4
 Quem descobriu a penicilina?;Marie Curie;Louis Pasteur;Alexander Fleming;Gregor Mendel;3
 Qual país tem o formato de uma bota?;Itália;Austrália;Suiça;Espanha;1
 Qual é a capital do Canadá?;Toronto;Ottawa;Montreal;Vancouver;2

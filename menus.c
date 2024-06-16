@@ -1,8 +1,10 @@
-#include "menus.h"
+#include "menus.h" //menus.c precisa de ter incluido o menus.h 
 
+
+/*MENU JOGADOR. O jogador escreve o nome, sigla e escolhe o tipo de jogo ou se quer sair*/
 void menuJogador(){
-    int opcao, pontuacao, numperguntas, numcertas, numperguntasjogo;
-    char nome[20], sigla[10];
+    int opcao, pontuacao = 0, numcertas = 0, numperguntas = 0;
+    char nome[50], sigla[10];
     printf("Insira o seu nome: ");
     scanf("%s",nome);
     printf("Insira a sua sigla: ");
@@ -17,12 +19,12 @@ void menuJogador(){
 
         switch (opcao) {
             case 1:
-                numperguntasjogo= 6;
-                pontuacao = jogo(2, &numperguntas, &numcertas);
+                numperguntas = 6;
+                pontuacao = jogo(2, &numcertas);
                 break;
             case 2:
-                numperguntasjogo=12;
-                pontuacao = jogo(4, &numperguntas, &numcertas);
+                numperguntas = 12;
+                pontuacao = jogo(4, &numcertas);
                 break;
             case 0:
                 printf("A sair do jogo...\n");
@@ -31,28 +33,29 @@ void menuJogador(){
                 printf("Opção inválida!!\n");
         }
         
+/*Caso o jogador jogue aparece no final a pontuação, a percentagem de certas, o numero de certas e erradas e o ranking*/   
+        
         if(opcao == 1 || opcao == 2){
-            
             guardarPontuacao(nome, sigla, pontuacao);
             
             printf("Pontuação Final: %d ", pontuacao);
             
             float percentagemcertas;
-            percentagemcertas = (numcertas * 100) / numperguntasjogo;
-            printf("Percentagem de Perguntas Certas: %f%% ", percentagemcertas);
+            percentagemcertas = (numcertas * 100) / numperguntas;
+            printf("Percentagem de Perguntas Certas: %f%%\n", percentagemcertas);
             
             int numerradas;
-            numerradas = numperguntasjogo-numcertas;
+            numerradas = numperguntas - numcertas;
             printf("Total de Perguntas Certas: %d\n Total de Perguntas Erradas: %d\n", numcertas,numerradas);
             
             RANKING utilizadores[100];
             int totalutilizadores = lerPontuacao(utilizadores);
             mostrarRanking(utilizadores, totalutilizadores);
-           
             opcao = 0;
         }
     }while(opcao != 0);
 }
+/*MENU ADMINISTRADOR. Usam credenciais para entrar*/
 
 void menuAdmin(){
     int opcao;
@@ -66,7 +69,9 @@ void menuAdmin(){
 
     printf("Password: ");
     scanf("%s", password);
-
+    
+/*Comparação entre os utilizadores colocados e os certos. O mesmo para as passwords*/
+    
     if ((strcmp(utilizador, utilizador1) != 0 &&
          strcmp(utilizador, utilizador2) != 0)
         || strcmp(password, password1) != 0){
@@ -79,7 +84,9 @@ void menuAdmin(){
         printf("Qual grupo deseja aceder?\n (1) Grupo1 e Grupo2\n (3) Grupo3\n");
         scanf("%d", &opcao);
         getchar();
-
+        
+/*O administrador escolhe o grupo onde quer colocar mais perguntas*/
+        
         switch (opcao) {
             case 1:
                 meterPerguntas();
@@ -95,6 +102,7 @@ void menuAdmin(){
         }
     }while(opcao != 0);
 }
+/*MENU PRINCIPAL. O utilizador escolhe se é admin ou jogador*/
 
 void menuPrincipal() {
     int opcao;
