@@ -47,7 +47,8 @@ int lerPerguntas(Perguntas perguntas[]) {
     fclose(ficheiro);
     return totalperguntas;
 }
-
+/*Função baralhar perguntas. 
+ * Troca a pergunta por outra pergunta do ficheiro(com o id gerado aleatoriamente)*/
 void baralharPerguntas(Perguntas perguntas[], int totalperguntas) {
     srand(time(NULL));
     for (int i = totalperguntas - 1; i > 0; i--) {
@@ -57,7 +58,7 @@ void baralharPerguntas(Perguntas perguntas[], int totalperguntas) {
         perguntas[j] = temp;
     }
 }
-
+/*Função inserir perguntas(grupo 1, grupo 2) só é acedida pelo admin*/
 void meterPerguntas() {
     Perguntas pergunta;
 
@@ -88,7 +89,7 @@ void meterPerguntas() {
     ficheiro = fopen("perguntas.txt", "a+");
 
     if (ficheiro == NULL) {
-        printf("Erro ao abrir o arquivo de pergunta.\n");
+        printf("Erro ao abrir o ficheiro.\n");
         return;
     }
 
@@ -137,7 +138,7 @@ int lerPerguntasOrdem(PerguntasOrdem perguntas[]) {
     fclose(LerperguntasOrdem);
     return totalperguntas;
 }
-
+/*Função baralhar perguntas de ordenar.(Está separada por ter uma estrutura diferente) */
 void baralharPerguntasOrdem(PerguntasOrdem perguntas[], int totalperguntas) {
     srand(time(NULL));
     for (int i = totalperguntas - 1; i > 0; i--) {
@@ -184,7 +185,7 @@ void meterPerguntaOrdem() {
 
 
 
-/* RANKING*/
+/* RANKING. Criar ficheiro onde são colocados os nomes, as siglas e as pontuações dos jogadores.*/
 void guardarPontuacao(char nome[], char sigla[], int pontuacao) {
     FILE *ranking = fopen("ranking.txt", "a");
    
@@ -195,7 +196,7 @@ void guardarPontuacao(char nome[], char sigla[], int pontuacao) {
     fprintf(ranking, "\n%s;%s;%d", nome, sigla, pontuacao);
     fclose(ranking);
 }
-
+/*Esta função faz a leitura do nome, sigla e pontuação de cada jogador dento do ficheiro.*/
 int lerPontuacao(RANKING utilizador[]) {
     FILE *ranking = fopen("ranking.txt", "r"); 
    
@@ -229,7 +230,7 @@ int lerPontuacao(RANKING utilizador[]) {
     fclose(ranking);
     return totalutilizadores;
 }
-
+/*Função que coloca por ordem decrescente as pontuações.*/
 void bubbleSortDescending(RANKING rankings[], int n) {
     int trocado;
     do {
@@ -245,7 +246,7 @@ void bubbleSortDescending(RANKING rankings[], int n) {
         --n;
     } while (trocado);
 }
-
+/*Função que mostra o ranking no final de cada jogo.*/
 void mostrarRanking(RANKING rankings[], int totalutilizadores) {
     bubbleSortDescending(rankings, totalutilizadores);
     if (totalutilizadores <= 0) {

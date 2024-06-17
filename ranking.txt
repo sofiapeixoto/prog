@@ -49,3 +49,5 @@ dhd;gfh;9
 dsh;dfh;-3
 cge;ssd;14
 dg;dsg;-1
+Frankiko;Kiko~;20
+Kiko;Kiko;45
