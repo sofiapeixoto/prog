@@ -2,7 +2,7 @@ Ordene cronologicamente os seguintes eventos históricos:;Revolução Francesa;D
 Organize os presidentes dos EUA por ordem de mandato:;George Washington;Abraham Lincoln;Franklin D. Roosevelt;123
 Coloque os rios a seguir em ordem de comprimento, do menor para o maior:;Rio Nilo;Rio Amazonas;Rio Yangtzé;312
 Ordene as capitais pelo número de habitantes, da menor para a maior:;Brasília;Tóquio;Paris;213
-Ordene os planetas do Sistema Solar pela distância do Sol, do mais próximo ao mais distante:;Terra;Marte;Júpiter;213
+Ordene os planetas do Sistema Solar pela distância do Sol, do mais próximo ao mais distante:;Terra;Marte;Júpiter;123
 Organize os elementos químicos pelo seu número atômico, do menor para o maior:;Hidrogênio;Carbono;Oxigênio;123
 Ordene os seguintes autores pela data de nascimento:;Charles Dickens;J.K. Rowling;William Shakespeare;312
 Coloque os livros a seguir em ordem de publicação:;"Orgulho e Preconceito" de Jane Austen;"Dom Quixote" de Miguel de Cervantes;"1984" de George Orwell;213
