@@ -70,7 +70,7 @@ int lerResposta2(PerguntasOrdem perguntas, int *numcertas){
 /*Guarda o id da pergunta respondida para não se repetir*/
 
 int jaRespondida(int id, int perguntasRespondidas[]){
-    for(size_t i = 0; i < 50; i++) {
+    for(int i = 0; i < 50; i++) {
         if(perguntasRespondidas[i] == id)
             return 1;
     }

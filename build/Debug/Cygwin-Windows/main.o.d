@@ -1,4 +1,4 @@
-build/Debug/Cygwin-Windows/main.o: main.c files.h menus.h jogo.h
-files.h:
+build/Debug/Cygwin-Windows/main.o: main.c menus.h files.h jogo.h
 menus.h:
+files.h:
 jogo.h:
